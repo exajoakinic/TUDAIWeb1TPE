@@ -1,0 +1,286 @@
+html {
+    display:flex;
+    justify-content: space-around;
+}
+
+body {
+    background-image: url("../images/fondo.jpg");
+    background-attachment: fixed;
+    background-size: 100%;
+    max-width: 1000px;
+    margin:20px ;
+    border-radius: 15px;
+    border: black 2px solid;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.content, header, footer, .frase_con_img {
+    padding:10px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content {
+    background-color: rgba(196, 200, 137, 0.8);
+}
+
+footer {
+    background-color: rgba(82, 51, 51, .9);
+    border-radius: 0 0 15px 15px;
+}
+footer * {
+    color:rgba(252, 244, 175, 0.884);
+}
+
+header {
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px 15px 0 0;
+}
+.form_contacto, table {
+    background-color: rgba(255,255,255,0.7);
+}
+
+#logo {
+    height: 100px;
+}
+
+header .main_nav {
+    display:flex;
+    flex-wrap: wrap;
+    
+}
+
+header .main_nav li {
+    display:flex;
+    color: black;
+    align-items: center;
+    background-color: rgba(125, 202, 131, 0.8);
+    padding: 0;
+    margin-left: 5px;
+    margin-top: 5px;
+    list-style: none;
+    border-radius: 10px;
+    border-color: black;
+    border-style:solid;
+    height: 60px;
+    width: 100px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+header .main_nav li:hover  {
+    background-color: rgba(0,255,255,.8);
+}
+header .main_nav li a:hover {
+    color:black;
+}
+header .main_nav li a {
+    text-decoration: none;
+    color:black;
+    text-transform: uppercase;
+    font-weight:bolder;
+
+    width: 100%;
+    height: 100%;
+
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    width:100%;
+    text-align: center;
+    font-style:oblique;
+    text-align: center;
+}
+
+.contenido_secundario, .contenido_principal {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: space-around;
+}
+.contenido_principal {
+    width: 65%;
+    }
+.contenido_secundario {
+    width: 25%;
+}
+
+.contenido_secundario > img {
+    max-width: 100%;
+} 
+
+img {
+    border-radius: 5px;
+}
+
+.form_contacto, .form_contacto label, .form_contacto  input, .form_contacto  textarea {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.form_contacto {
+    border-style: solid;
+    border:1px solid;
+    border-radius: 10px;
+    width:60%;
+    padding:30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.form_contacto label, .form_contacto  input, .form_contacto  textarea {
+    padding: 40px;
+    width: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom: 10px;
+}
+
+.form_contacto  textarea {
+    height:200px;
+}
+
+.btn_submit {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.btn_submit:hover {
+    background-color: #45a049;
+}
+
+.btn_disabled, .btn_disabled:hover {
+    background-color: grey;
+    cursor:initial;
+}
+
+
+table{
+    padding:15px 10px;
+    border-radius: 15px;
+    border: 2px dashed black;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+table tbody tr td:first-child {
+    text-align: left;
+}
+table thead tr{
+    background-color: rgba(144, 133, 50, 0.5);
+}
+table tbody tr:nth-child(2n+0) {
+    background-color:rgba(220, 220, 220, .3);
+}
+
+table tbody tr:nth-child(2n+1) {
+    background-color:rgba(180, 180, 180, .3);
+}
+
+span img{
+    height: 1em;
+}
+
+.mapa {
+    border-radius: 100px;
+    max-width: 100%;
+    display: flex;
+    align-self: center;
+}
+
+.frase_con_img:nth-child(2n+1) {
+    flex-direction: row-reverse;
+}
+.frase_con_img img{
+    width:30%;
+}
+.frase_con_img p{
+    justify-content: flex-start;
+    width:60%;
+    font-size: 1.25rem;
+    padding: 20px;
+}
+
+.apto_veg {
+    background: url("../images/apto_vegetarianos.png");
+}
+.apto_celiacos {
+    background: url("../images/apto_celiacos.png");
+}
+.origen_argentina {
+    background: url("../images/origen_argentina.png");
+}
+.origen_españa {
+    background: url("../images/origen_españa.png");
+}
+.origen_grecia {
+    background: url("../images/origen_grecia.png");
+}
+.origen_india {
+    background: url("../images/origen_india.png");
+}
+.origen_italia {
+    background: url("../images/origen_italia.png");
+}
+.origen_mexico {
+    background: url("../images/origen_mexico.png");
+}
+.origen_portugal {
+    background: url("../images/origen_portugal.png");
+}
+.apto, .origen {
+    width: 1em;
+    height: 1em;
+    display:inline-flex;
+    background-size: 1em;
+    background-repeat: no-repeat;
+}
+
+p{
+    text-align: justify;
+}
+
+p:first-letter{
+    margin-left: 1em;
+}
+
+.upper_content{
+    font-size: 1.25rem;
+}
+
+.lista{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    border: 2px dashed black;
+    padding: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+ol{
+    padding-right:  15px;
+}
+
+.top_lista{
+    text-align: center;
+    margin:10px 0 0 0;
+    background-color: rgba(144, 133, 50, 0.5);
+    font-weight: 1.5rem;
+}
+
+header .main_nav li:hover{
+    background-color: rgba(87, 149, 92, 0.8);
+}
+
+footer p{
+    align-content: space-between;
+}
