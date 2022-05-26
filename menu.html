@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,36 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Restaurante Bon Appétit</title>
 </head>
+
 <body>
     <header>
         <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <ul class="main_nav">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="menu.html">Menú</a></li>
-            <li><a href="ubicacion.html">Ubicación</a></li>
-            <li><a href="index.html#form_contacto">Contacto</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="ubicacion.html">Ubicación</a></li>
+                <li><a href="index.html#form_contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    
+
     <div class='content'>
         <div class='contenido_principal'>
             <p>En esta seccion podran encontrar una tabla de referencia con los platos que podemos ofrecerles:</p>
+            <table id="table-menu">
+                <thead>
+                    <tr>
+                        <th>Plato</th>
+                        <th>Precio</th>
+                        <th>Origen</th>
+                        <th>Apto:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
             <table>
                 <thead>
                     <tr>
@@ -34,7 +51,7 @@
                     <tr>
                         <td>Lasagna</td>
                         <td>$350</td>
-                        <td><span class="origen origen_italia" title="Italia"/></span></td>
+                        <td><span class="origen origen_italia" title="Italia"></span></td>
                         <td></td>
                     </tr>
                     <tr>
@@ -44,11 +61,11 @@
                         <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
                     </tr>
                     <tr>
-                        <td>Calzone de Verdura  </td>
+                        <td>Calzone de Verdura </td>
                         <td>$280</td>
                         <td><span class="origen origen_italia" title="Italia"></span></td>
                         <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                         <td>Bruschetta</td>
                         <td>$330</td>
@@ -60,7 +77,8 @@
                         <td>$500</td>
                         <td><span class="origen origen_italia" title="Italia"></span></td>
                         <td><span class="apto apto_celiacos" title="Apto Celíacos"></span>
-                            <span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
+                            <span class="apto apto_veg" title="Apto Vegetarianos"></span>
+                        </td>
                     </tr>
                     <tr>
                         <td>Briami Griego</td>
@@ -91,7 +109,8 @@
                         <td>$520</td>
                         <td><span class="origen origen_mexico" title="Mexico"></span></td>
                         <td><span class="apto apto_celiacos" title="Apto Celíacos"></span></td>
-                    </tr>                    <tr>
+                    </tr>
+                    <tr>
                         <td>Gazpacho Andaluz Tradicional</td>
                         <td>$330</td>
                         <td><span class="origen origen_españa" title="España"></span></td>
@@ -111,7 +130,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>    
+        </div>
         <div class='contenido_secundario'>
             <p>Aqui podemos ofrecerles un listado de los platos mas pedidos:</p>
             <div class="lista">
@@ -129,6 +148,8 @@
     <footer>
         <p>C7 - Iglesias Coqueti Joaquin y Del Sole Enzo</p>
         <p>Creada por estudiantes de primer año de TUDAI</p>
-    </footer>    
+    </footer>
 </body>
+<script src="js/script_menu.js"></script>
+
 </html>

@@ -46,13 +46,13 @@ header {
     height: 100px;
 }
 
-header .main_nav {
+header nav ul {
     display:flex;
     flex-wrap: wrap;
     
 }
 
-header .main_nav li {
+header nav ul li {
     display:flex;
     color: black;
     align-items: center;
@@ -68,13 +68,13 @@ header .main_nav li {
     width: 100px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
-header .main_nav li:hover  {
+header nav ul li:hover  {
     background-color: rgba(0,255,255,.8);
 }
-header .main_nav li a:hover {
+header nav ul li a:hover {
     color:black;
 }
-header .main_nav li a {
+header nav ul li a {
     text-decoration: none;
     color:black;
     text-transform: uppercase;
@@ -95,7 +95,7 @@ h1 {
     text-align: center;
 }
 
-.contenido_secundario, .contenido_principal {
+body>div.content aside, .contenido_principal {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
@@ -104,7 +104,7 @@ h1 {
 .contenido_principal {
     width: 65%;
     }
-.contenido_secundario {
+body>div.content aside {
     width: 25%;
 }
 
@@ -244,6 +244,7 @@ span img{
     display:inline-flex;
     background-size: 1em;
     background-repeat: no-repeat;
+    content-visibility: hidden;
 }
 
 p{
@@ -283,4 +284,11 @@ header .main_nav li:hover{
 
 footer p{
     align-content: space-between;
+}
+
+.captchaBad {
+    color: rgb(255,0,0);
+}
+.captchaOK {
+    color: rgb(0,155,0);
 }
