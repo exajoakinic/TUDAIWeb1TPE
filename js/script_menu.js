@@ -65,7 +65,7 @@ let menu = [
     {
         "nombre": "Ensalada César Sin Gluten",
         "precio": "520",
-        "origen": "Grecia",
+        "origen": "México",
         "apto_veg": false,
         "apto_celiacos": true
     },
@@ -121,7 +121,8 @@ function htmlMenuRowWithoutTR(plato) {
 function htmlCampoOrigen(origen) {
     //origen debe estar en minúsicolas para que tome correctamente la clase:
     pais = origen.toLowerCase();
-
+    //Necesario para el caso de 'méxico' que debe quedar 'mexico'
+    pais = eliminarAcentos(pais);
     //Vamos almacenando en lo que va a devolver la función
     let r = "<span class='origen origen_" + pais + "' title='" + origen + "'>";
     r += origen;
@@ -129,8 +130,18 @@ function htmlCampoOrigen(origen) {
 
     //Devuelvemos el valor de r, con el html del campo origen
     return r;
-
 }
+
+//Se generó por 'méxico' que debía quedar 'mexico'
+function eliminarAcentos(s) {
+    s = s.replace("á", "a");
+    s = s.replace("é", "e");
+    s = s.replace("í", "i");
+    s = s.replace("ó", "o");
+    s = s.replace("ú", "u");
+    return s;
+}
+
 function htmlCampoApto(plato) {
     //Vamos almacenando en lo que va a devolver la función
     let r = "";
@@ -151,9 +162,23 @@ function htmlCampoApto(plato) {
 // FIN FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 
 let formulario = document.querySelector("#form_menu");
-formulario.addEventListener("submit", function (event) {
-    debugger
-    event.preventDefault();
+formulario.btn_agregar.addEventListener("click", function () {
+    if (formulario.reportValidity()) {
+        addFormAsRow()
+    }
+});
+formulario.btn_agregarx3.addEventListener("click", function () {
+    if (formulario.reportValidity()) {
+        for (let i = 0; i < 3; i++) {
+            addFormAsRow()
+        }
+    }
+});
+formulario.btn_limpiar.addEventListener("click", function () {
+    tableMenuTbody.innerHTML="";
+    menu = [];
+});
+function addFormAsRow() {
     let plato = {
         "nombre": formulario.nombre.value,
         "precio": formulario.precio.value,
@@ -162,10 +187,10 @@ formulario.addEventListener("submit", function (event) {
         "apto_celiacos": formulario.apto_celiacos.checked
     };
     addToTable(plato);
-});
-
+}
 function addToTable(plato) {
     fila = document.createElement("tr");
-    fila.innerHTML  = htmlMenuRowWithoutTR(plato)
+    fila.innerHTML  = htmlMenuRowWithoutTR(plato);
+    menu.push(plato);
     tableMenuTbody.appendChild(fila);
 }
