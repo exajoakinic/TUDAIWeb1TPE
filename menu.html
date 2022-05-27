@@ -38,98 +38,38 @@
                 </tbody>
             </table>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Plato</th>
-                        <th>Precio</th>
-                        <th>Origen</th>
-                        <th>Apto:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Lasagna</td>
-                        <td>$350</td>
-                        <td><span class="origen origen_italia" title="Italia"></span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Pizza Napolitana</td>
-                        <td>$370</td>
-                        <td><span class="origen origen_italia" title="Italia"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Calzone de Verdura </td>
-                        <td>$280</td>
-                        <td><span class="origen origen_italia" title="Italia"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Bruschetta</td>
-                        <td>$330</td>
-                        <td><span class="origen origen_italia" title="Italia"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Ratatouille</td>
-                        <td>$500</td>
-                        <td><span class="origen origen_italia" title="Italia"></span></td>
-                        <td><span class="apto apto_celiacos" title="Apto Celíacos"></span>
-                            <span class="apto apto_veg" title="Apto Vegetarianos"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Briami Griego</td>
-                        <td>$540</td>
-                        <td><span class="origen origen_grecia" title="Grecia"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Musaka</td>
-                        <td>$290</td>
-                        <td><span class="origen origen_grecia" title="Grecia"></span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Risotto</td>
-                        <td>$360</td>
-                        <td><span class="origen origen_grecia" title="Grecia"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Albondigas Con Salsa de Limón</td>
-                        <td>$450</td>
-                        <td><span class="origen origen_grecia" title="Grecia"></span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Ensalada César Sin Gluten</td>
-                        <td>$520</td>
-                        <td><span class="origen origen_mexico" title="Mexico"></span></td>
-                        <td><span class="apto apto_celiacos" title="Apto Celíacos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Gazpacho Andaluz Tradicional</td>
-                        <td>$330</td>
-                        <td><span class="origen origen_españa" title="España"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Falafel</td>
-                        <td>$390</td>
-                        <td><span class="origen origen_india" title="India"></span></td>
-                        <td><span class="apto apto_veg" title="Apto Vegetarianos"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Bacalao Dorado</td>
-                        <td>$600</td>
-                        <td><span class="origen origen_portugal" title="Portugal"></span></td>
-                        <td><span class="apto apto_celiacos" title="Apto Celíacos"></span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <form id="form_menu" action="">
+                <h2>Agregar Plato Al Menú</h2>
+                <label>
+                    Nombre
+                    <Input type="text" name="nombre" required />
+                </label>
+
+                <label>
+                    Precio
+                    <Input type="number" name="precio" required />
+                </label>
+                <label>
+                    Origen
+                    <select name="origen">
+                        <option>India</option>
+                        <option>Italia</option>
+                        <option>Grecia</option>
+                        <option>México</option>
+                        <option>Portugal</option>
+                    </select>
+                </label>
+                <label>
+                    Apto Vegetarianos
+                    <Input type="checkbox" name="apto_veg" />
+                </label>
+                <label>
+                    Apto Celíacos
+                    <Input type="checkbox" name="apto_celiacos" />
+                </label>
+
+                <input type="submit" class="btn_submit" />
+            </form>
         </div>
         <div class='contenido_secundario'>
             <p>Aqui podemos ofrecerles un listado de los platos mas pedidos:</p>
@@ -145,6 +85,7 @@
             </div>
         </div>
     </div>
+
     <footer>
         <p>C7 - Iglesias Coqueti Joaquin y Del Sole Enzo</p>
         <p>Creada por estudiantes de primer año de TUDAI</p>

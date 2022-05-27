@@ -38,7 +38,7 @@ header {
     background-color: rgba(255,255,255,0.7);
     border-radius: 15px 15px 0 0;
 }
-.form_contacto, table {
+form,  table {
     background-color: rgba(255,255,255,0.7);
 }
 
@@ -116,11 +116,11 @@ img {
     border-radius: 5px;
 }
 
-.form_contacto, .form_contacto label, .form_contacto  input, .form_contacto  textarea {
+form, form label, form  input, form  textarea {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.form_contacto {
+form {
     border-style: solid;
     border:1px solid;
     border-radius: 10px;
@@ -131,7 +131,8 @@ img {
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
-.form_contacto label, .form_contacto  input, .form_contacto  textarea {
+form label, .form_contacto  input, .form_contacto textarea {
+    display:flex;
     padding: 40px;
     width: 100%;
     border-radius: 5px;
@@ -141,7 +142,7 @@ img {
     margin-bottom: 10px;
 }
 
-.form_contacto  textarea {
+form  textarea {
     height:200px;
 }
 
