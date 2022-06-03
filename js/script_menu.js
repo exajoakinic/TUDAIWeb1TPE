@@ -1,91 +1,91 @@
 let menu = [
     {
         "nombre": "Lasagna",
-        "precio": "350",
+        "precio": 350,
         "origen": "Italia",
         "apto_veg": false,
         "apto_celiacos": false
     },
     {
         "nombre": "Pizza Napolitana",
-        "precio": "370",
+        "precio": 370,
         "origen": "Italia",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Calzone de Verdura",
-        "precio": "280",
+        "precio": 280,
         "origen": "Italia",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Bruschetta",
-        "precio": "330",
+        "precio": 330,
         "origen": "Italia",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Ratatouille",
-        "precio": "500",
+        "precio": 500,
         "origen": "Italia",
         "apto_veg": true,
         "apto_celiacos": true
     },
     {
         "nombre": "Briami Grigo",
-        "precio": "540",
+        "precio": 540,
         "origen": "Grecia",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Musaka",
-        "precio": "290",
+        "precio": 290,
         "origen": "Grecia",
         "apto_veg": false,
         "apto_celiacos": false
     },
     {
         "nombre": "Risotto",
-        "precio": "360",
+        "precio": 360,
         "origen": "Grecia",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Albondigas Con Salsa de Limón",
-        "precio": "450",
+        "precio": 450,
         "origen": "Grecia",
         "apto_veg": false,
         "apto_celiacos": false
     },
     {
         "nombre": "Ensalada César Sin Gluten",
-        "precio": "520",
+        "precio": 520,
         "origen": "México",
         "apto_veg": false,
         "apto_celiacos": true
     },
     {
         "nombre": "Gazpacho Andaluz Tradicional",
-        "precio": "330",
+        "precio": 330,
         "origen": "España",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Falafel",
-        "precio": "390",
+        "precio": 390,
         "origen": "India",
         "apto_veg": true,
         "apto_celiacos": false
     },
     {
         "nombre": "Bacalao Dorado",
-        "precio": "600",
+        "precio": 600,
         "origen": "Portugal",
         "apto_veg": false,
         "apto_celiacos": true
@@ -98,24 +98,16 @@ inicializarTabla()
 function inicializarTabla() {
     let filas = "";
     for (elem of menu) {
-        filas += htmlMenuRow(elem);
+        filas += "<tr>" + htmlMenuRow(elem) + "</tr>";
     }
     tableMenuTbody.innerHTML = filas;
 }
 function htmlMenuRow(plato) {
-    //Vamos almacenando en lo que va a devolver la función
-    let r = "<tr>";
-    r += htmlMenuRowWithoutTR(plato);
-    r += "</td>"
-    //Devuelvemos el valor de r, con el html de la fila
-    return r;
-}
-function htmlMenuRowWithoutTR(plato) {
     let r 
     r = "<td>" + plato.nombre + "</td>";
     r += "<td>$" + plato.precio + "</td>";
     r += "<td>" + htmlCampoOrigen(plato.origen) + "</td>";
-    r += "<td>" + htmlCampoApto(plato);
+    r += "<td>" + htmlCampoApto(plato) + "</td>";
     return r
 }
 function htmlCampoOrigen(origen) {
@@ -190,7 +182,7 @@ function addFormAsRow() {
 }
 function addToTable(plato) {
     fila = document.createElement("tr");
-    fila.innerHTML  = htmlMenuRowWithoutTR(plato);
+    fila.innerHTML  = htmlMenuRow(plato);
     menu.push(plato);
     tableMenuTbody.appendChild(fila);
 }

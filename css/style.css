@@ -293,3 +293,6 @@ footer p{
 .captchaOK {
     color: rgb(0,155,0);
 }
+
+
+@media screen and (min-width 544px)
