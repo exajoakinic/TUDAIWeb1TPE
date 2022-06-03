@@ -1,3 +1,5 @@
+"use strict"
+
 let menu = [
     {
         "nombre": "Lasagna",
@@ -97,7 +99,7 @@ inicializarTabla()
 // FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 function inicializarTabla() {
     let filas = "";
-    for (elem of menu) {
+    for (let elem of menu) {
         filas += "<tr>" + htmlMenuRow(elem) + "</tr>";
     }
     tableMenuTbody.innerHTML = filas;
@@ -112,7 +114,7 @@ function htmlMenuRow(plato) {
 }
 function htmlCampoOrigen(origen) {
     //origen debe estar en minúsicolas para que tome correctamente la clase:
-    pais = origen.toLowerCase();
+    let pais = origen.toLowerCase();
     //Necesario para el caso de 'méxico' que debe quedar 'mexico'
     pais = eliminarAcentos(pais);
     //Vamos almacenando en lo que va a devolver la función
@@ -181,7 +183,7 @@ function addFormAsRow() {
     addToTable(plato);
 }
 function addToTable(plato) {
-    fila = document.createElement("tr");
+    let fila = document.createElement("tr");
     fila.innerHTML  = htmlMenuRow(plato);
     menu.push(plato);
     tableMenuTbody.appendChild(fila);

@@ -212,41 +212,55 @@ span img{
     padding: 20px;
 }
 
-.apto_veg {
-    background: url("../images/apto_vegetarianos.png");
+.apto_veg:before {
+    background-image: url("../images/apto_vegetarianos.png");
 }
-.apto_celiacos {
-    background: url("../images/apto_celiacos.png");
+.apto_celiacos:before {
+    background-image: url("../images/apto_celiacos.png");
 }
-.origen_argentina {
-    background: url("../images/origen_argentina.png");
+.origen_argentina:before {
+    background-image: url("../images/origen_argentina.png");
 }
-.origen_españa {
-    background: url("../images/origen_españa.png");
+.origen_españa:before {
+    background-image: url("../images/origen_españa.png");
 }
-.origen_grecia {
-    background: url("../images/origen_grecia.png");
+.origen_grecia:before {
+    background-image: url("../images/origen_grecia.png");
 }
-.origen_india {
-    background: url("../images/origen_india.png");
+.origen_india:before {
+    background-image: url("../images/origen_india.png");
 }
-.origen_italia {
-    background: url("../images/origen_italia.png");
+.origen_italia:before {
+   
+    background-image: url("../images/origen_italia.png");
 }
-.origen_mexico {
-    background: url("../images/origen_mexico.png");
+.origden_italia:before {
+    background-image: url("../images/origen_italia.png");
 }
-.origen_portugal {
-    background: url("../images/origen_portugal.png");
+.origen_mexico:before {
+    background-image: url("../images/origen_mexico.png");
 }
-.apto, .origen {
+.origen_portugal:before {
+    background-image: url("../images/origen_portugal.png");
+}
+.apto:before, .origen:before {
+    content: "";
+    display:flex;
+    position:absolute;
     width: 1em;
     height: 1em;
-    display:inline-flex;
     background-size: 1em;
     background-repeat: no-repeat;
-    content-visibility: hidden;
+    visibility: visible;
 }
+.apto, .origen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position:relative;
+}
+
 
 p{
     text-align: justify;
@@ -295,4 +309,6 @@ footer p{
 }
 
 
-@media screen and (min-width 544px)
+@media screen and (min-width 544px) {
+
+}
