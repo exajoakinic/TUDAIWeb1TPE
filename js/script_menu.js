@@ -1,4 +1,28 @@
 "use strict"
+let tableMenuTbody
+let formulario
+
+document.addEventListener("DOMContentLoaded", function() {
+    tableMenuTbody = document.querySelector("#table-menu tbody");
+    formulario = document.querySelector("#form_menu");
+    inicializarTabla()
+    formulario.btn_agregar.addEventListener("click", function () {
+        if (formulario.reportValidity()) {
+            addFormAsRow()
+        }
+    });
+    formulario.btn_agregarx3.addEventListener("click", function () {
+        if (formulario.reportValidity()) {
+            for (let i = 0; i < 3; i++) {
+                addFormAsRow()
+            }
+        }
+    });
+    formulario.btn_limpiar.addEventListener("click", function () {
+        tableMenuTbody.innerHTML="";
+        menu = [];
+    });
+});
 
 let menu = [
     {
@@ -94,8 +118,6 @@ let menu = [
     }
 ];
 
-let tableMenuTbody = document.querySelector("#table-menu tbody");
-inicializarTabla()
 // FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 function inicializarTabla() {
     let filas = "";
@@ -155,23 +177,6 @@ function htmlCampoApto(plato) {
 }
 // FIN FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 
-let formulario = document.querySelector("#form_menu");
-formulario.btn_agregar.addEventListener("click", function () {
-    if (formulario.reportValidity()) {
-        addFormAsRow()
-    }
-});
-formulario.btn_agregarx3.addEventListener("click", function () {
-    if (formulario.reportValidity()) {
-        for (let i = 0; i < 3; i++) {
-            addFormAsRow()
-        }
-    }
-});
-formulario.btn_limpiar.addEventListener("click", function () {
-    tableMenuTbody.innerHTML="";
-    menu = [];
-});
 function addFormAsRow() {
     let plato = {
         "nombre": formulario.nombre.value,
