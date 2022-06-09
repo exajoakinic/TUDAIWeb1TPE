@@ -14,10 +14,14 @@ body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.content, header, footer, .frase_con_img {
+.content,footer, .frase_con_img {
     padding:10px;
-    display:flex;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}   
+
+header{
+    padding:10px;
     justify-content: space-around;
     align-items: center;
 }
@@ -41,21 +45,60 @@ header {
 form,  table {
     background-color: rgba(255,255,255,0.7);
 }
+.logo_y_responsive{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 #logo {
-    height: 100px;
+    height: 60px;
+}
+
+.logo_y_responsive a{
+    padding: 10px 10px;
+    color: black;
+    align-items: center;
+    background-color: rgba(125, 202, 131, 0.8);
+    margin: 10px 10px 10px 10px;
+    list-style: none;
+    border-radius: 10px;
+    border-color: black;
+    border-style:solid;
+    height: auto;
+    width: auto;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
 header nav ul {
     display:flex;
     flex-wrap: wrap;
+    margin-block-start: 0px;
+    margin-block-end: 5px;
     
+}
+
+header ul{
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_bar{
+    display:flex;
+    display:none;
+}
+
+.show{
+    display:block;
 }
 
 header nav ul li {
     display:flex;
     color: black;
     align-items: center;
+    margin: 0px 0px 0px 0px;
     background-color: rgba(125, 202, 131, 0.8);
     padding: 0;
     margin-left: 5px;
@@ -64,12 +107,12 @@ header nav ul li {
     border-radius: 10px;
     border-color: black;
     border-style:solid;
-    height: 60px;
-    width: 100px;
+    height: 40px;
+    width: 200px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 header nav ul li:hover  {
-    background-color: rgba(0,255,255,.8);
+    background-color: rgba(38, 168, 84, 0.8);
 }
 header nav ul li a:hover {
     color:black;
@@ -93,6 +136,7 @@ h1 {
     text-align: center;
     font-style:oblique;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 body>div.content aside, .contenido_principal {
@@ -101,16 +145,25 @@ body>div.content aside, .contenido_principal {
     align-self: center;
     justify-content: space-around;
 }
+
 .contenido_principal {
-    width: 65%;
-    }
-body>div.content aside {
-    width: 25%;
+    width: 100%;
+}
+
+.cont_opcional {
+    width: 100%;
+    display: none;
 }
 
 .contenido_secundario > img {
-    max-width: 100%;
+    max-width: 60%;
+
 } 
+
+.contenido_secundario p{
+    padding: 10px 10px 10px 10px;
+    font-size: 0.75rem;
+}
 
 img {
     border-radius: 5px;
@@ -124,22 +177,23 @@ form {
     border-style: solid;
     border:1px solid;
     border-radius: 10px;
-    width:60%;
+    width: 75%;
     padding:30px;
-    margin-top: 20px;
+    min-height: 900px;
+    margin-top: 0px;
     margin-bottom: 20px;
+    margin-block-end: 5px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 form label, .form_contacto  input, .form_contacto textarea {
-    display:flex;
     padding: 40px;
     width: 100%;
     border-radius: 5px;
     box-sizing: border-box;
     padding:10px;
     margin-top:5px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 form  textarea {
@@ -199,19 +253,21 @@ span img{
     align-self: center;
 }
 
-.frase_con_img:nth-child(2n+1) {
-    flex-direction: row-reverse;
-}
 .frase_con_img img{
-    width:30%;
+    width: 100%;
+    padding: 0px;
 }
 .frase_con_img p{
     justify-content: flex-start;
-    width:60%;
-    font-size: 1.25rem;
+    width: 100%;
+    font-size: 0.9rem;
     padding: 20px;
 }
-
+.frase_con_img{
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 350px;
+}
 .apto_veg:before {
     background-image: url("../images/apto_vegetarianos.png");
 }
@@ -267,11 +323,11 @@ p{
 }
 
 p:first-letter{
-    margin-left: 1em;
+    margin-left: 0.5em;
 }
 
 .upper_content{
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .lista{
@@ -308,7 +364,48 @@ footer p{
     color: rgb(0,155,0);
 }
 
+.curiosidad{
+    padding: 10px 10px;
+    margin-left: 20px;
+    color: black;
+    align-items: center;
+    background-color: rgba(125, 202, 131, 0.8);
+    margin: 10px 10px 10px 10px;
+    list-style: none;
+    border-radius: 10px;
+    border-color: black;
+    border-style:solid;
+    height: auto;
+    min-width: 250px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    text-align: center;
+}
 
-@media screen and (min-width 544px) {
+.mostrar{
+    display: block;
+}
 
+form h2, label{
+    font-size:1rem;
+}
+@media screen and (min-width: 768px) {
+    .nav_bar{
+        display:block;
+    }
+    
+    .frase_con_img:nth-child(2n+1) {
+        flex-direction: row-reverse;
+    }
+    .frase_con_img img{
+        width: 45%;
+        padding: 0px;
+    }
+    .frase_con_img p{
+        width: 55%;
+    }
+    .frase_con_img{
+        flex-wrap: nowrap;
+        max-width: none;
+    }
+    
 }

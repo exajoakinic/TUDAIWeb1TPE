@@ -9,21 +9,25 @@
 </head>
 <body>
     <header>
-        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <nav>
+        <div class="logo_y_responsive">
+            <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
+            <a class="btn_responsive">MENÚ</a>
+        </div>
+        <nav class="nav_bar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>
                 <li><a href="ubicacion.html">Ubicación</a></li>
                 <li><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
-        </nav>
+        </nav>    
     </header>
     
     <div class='content'>
         <div class='contenido_principal'>
             <img src="images/mapa.png" alt="mapa con ubicacion" class="mapa"/>
-         </div>    
+        </div>
+        <button class="cont_opcional">¿Quieres ver una curiosidad?</button>    
         <div class='contenido_secundario'>
             <img src="images/lasagna.jpg" alt="lasagna"/>
             <p>El origen de la lasaña es tan antiguo que el mismísimo filósofo Cicerón era un gran amante de este plato, en la Antigua Roma en el siglo III. a.C. En esa época la lasaña era un plato que consistía en cuadros de pasta con legumbres y quesos. En esa época la lasaña se realizaba en cazuelas de barro.</p>
@@ -34,4 +38,5 @@
         <p>Creada por estudiantes de primer año de TUDAI</p>
     </footer>    
 </body>
+<script src="js/script_ubicacion.js"></script>
 </html>

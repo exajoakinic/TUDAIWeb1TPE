@@ -10,19 +10,21 @@
 </head>
 
 <body>
-    <script src="js/script_menu.js"></script>
     <header>
-        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <nav>
+        <div class="logo_y_responsive">
+            <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
+            <a class="btn_responsive">MENÚ</a>
+        </div>
+        <nav class="nav_bar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>
                 <li><a href="ubicacion.html">Ubicación</a></li>
                 <li><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
-        </nav>
+        </nav>    
     </header>
-
+    
     <div class='content'>
         <div class='contenido_principal'>
             <p>En esta seccion podran encontrar una tabla de referencia con los platos que podemos ofrecerles:</p>
@@ -38,14 +40,14 @@
                 <tbody>
                 </tbody>
             </table>
-
+            
             <form id="form_menu" action="">
                 <h2>Agregar Plato Al Menú</h2>
                 <label>
                     Nombre
                     <Input type="text" name="nombre" required />
                 </label>
-
+                
                 <label>
                     Precio
                     <Input type="number" name="precio" required />
@@ -68,12 +70,15 @@
                     Apto Celíacos
                     <Input type="checkbox" name="apto_celiacos" />
                 </label>
-
+                
                 <input type="button" class="btn_form" name="btn_agregar" value="Agregar"/>
                 <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3"/>
                 <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú"/>
             </form>
         </div>
+
+        <button class="cont_opcional">¿Quieres ver una curiosidad?</button>
+
         <div class='contenido_secundario'>
             <p>Aqui podemos ofrecerles un listado de los platos mas pedidos:</p>
             <div class="lista">
@@ -94,4 +99,5 @@
         <p>Creada por estudiantes de primer año de TUDAI</p>
     </footer>
 </body>
+<script src="js/script_menu.js"></script>
 </html>

@@ -11,15 +11,18 @@
 
 <body>
     <header>
-        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <nav>
+        <div class="logo_y_responsive">
+            <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
+            <a class="btn_responsive">MENÚ</a>
+        </div>
+        <nav class="nav_bar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>
                 <li><a href="ubicacion.html">Ubicación</a></li>
                 <li><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
-        </nav>
+        </nav>    
     </header>
 
     <div class='content'>
@@ -44,14 +47,17 @@
             </div>
         </article>
 
-        <aside class='contenido_secundario'>
-            <img src="images/pizza.jpg" alt="pizza" />
-            <p>Muchos historiadores afirman que la pizza, tal y como se conoce en la actualidad, procede de la
-                ciudad de Nápoles (Italia) y aparece como plato popular entre los napolitanos, en algún momento no
-                definido del siglo XVII.</p>
-            <p>Los panes planos y las preparaciones fundamentadas en ellos, como la pizza, son típicos de las
-                cocinas mediterráneas.</p>
-        </aside>
+        <button class="curiosidad">¿Quieres ver una curiosidad?</button>
+        <div class="cont_opcional">
+            <aside class='contenido_secundario'>
+                    <img src="images/pizza.jpg" alt="pizza" />
+                    <p>Muchos historiadores afirman que la pizza, tal y como se conoce en la actualidad, procede de la
+                        ciudad de Nápoles (Italia) y aparece como plato popular entre los napolitanos, en algún momento no
+                        definido del siglo XVII.</p>
+                    <p>Los panes planos y las preparaciones fundamentadas en ellos, como la pizza, son típicos de las
+                        cocinas mediterráneas.</p>
+            </aside>
+        </div>    
     </div>
     <div class="content">
         <form id="form_contacto" class="form_contacto" action="">

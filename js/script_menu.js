@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
         tableMenuTbody.innerHTML="";
         menu = [];
     });
+
+    
 });
 
 let menu = [
@@ -143,7 +145,7 @@ function htmlCampoOrigen(origen) {
     let r = "<span class='origen origen_" + pais + "' title='" + origen + "'>";
     r += origen;
     r += "</span>";
-
+    
     //Devuelvemos el valor de r, con el html del campo origen
     return r;
 }
@@ -166,13 +168,13 @@ function htmlCampoApto(plato) {
         r += "Vegetarianos";
         r += "</span>";
     }
-
+    
     if (plato.apto_celiacos) {
         r += "<span class='apto apto_celiacos' title='Celiacos'>";
         r += "Celiacos";
         r += "</span>";
     }
-
+    
     return r;
 }
 // FIN FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
@@ -193,3 +195,15 @@ function addToTable(plato) {
     menu.push(plato);
     tableMenuTbody.appendChild(fila);
 }
+
+document.querySelector(".btn_responsive").addEventListener("click", mostrarNav);
+function mostrarNav() {
+        document.querySelector(".nav_bar").classList.toggle("show");
+    }
+    
+    
+document.querySelector(".curiosidad").addEventListener("click",mostrarCuriosidad);
+    function mostrarCuriosidad(){
+        document.querySelector(".cont_opcional").classList.toggle("mostrar");
+        
+    }
