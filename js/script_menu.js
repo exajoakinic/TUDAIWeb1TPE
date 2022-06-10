@@ -195,15 +195,3 @@ function addToTable(plato) {
     menu.push(plato);
     tableMenuTbody.appendChild(fila);
 }
-
-document.querySelector(".btn_responsive").addEventListener("click", mostrarNav);
-function mostrarNav() {
-        document.querySelector(".nav_bar").classList.toggle("show");
-    }
-    
-    
-document.querySelector(".curiosidad").addEventListener("click",mostrarCuriosidad);
-    function mostrarCuriosidad(){
-        document.querySelector(".cont_opcional").classList.toggle("mostrar");
-        
-    }

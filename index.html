@@ -11,18 +11,17 @@
 
 <body>
     <header>
-        <div class="logo_y_responsive">
-            <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-            <a class="btn_responsive">MENÚ</a>
-        </div>
-        <nav class="nav_bar">
+        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
+        <img src="images/menu-icon.svg" alt="MENU" class="btn_menu_nav botones hide_from_tablet"/>
+        <nav class="nav_bar show_from_tablet">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="menu.html">Menú</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-                <li><a href="index.html#form_contacto">Contacto</a></li>
+                <li class="botones"><a href="index.html">Inicio</a></li>
+                <li class="botones"><a href="menu.html">Menú</a></li>
+                <li class="botones"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="botones"><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
         </nav>    
+        <script src="js/script_nav.js"></script>
     </header>
 
     <div class='content'>
@@ -47,17 +46,16 @@
             </div>
         </article>
 
-        <button class="curiosidad">¿Quieres ver una curiosidad?</button>
-        <div class="cont_opcional">
-            <aside class='contenido_secundario'>
-                    <img src="images/pizza.jpg" alt="pizza" />
-                    <p>Muchos historiadores afirman que la pizza, tal y como se conoce en la actualidad, procede de la
-                        ciudad de Nápoles (Italia) y aparece como plato popular entre los napolitanos, en algún momento no
-                        definido del siglo XVII.</p>
-                    <p>Los panes planos y las preparaciones fundamentadas en ellos, como la pizza, son típicos de las
-                        cocinas mediterráneas.</p>
-            </aside>
-        </div>    
+        <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres ver una curiosidad?</button>
+        <div class='contenido_secundario cont_opcional show_from_tablet'>
+                <img src="images/pizza.jpg" alt="pizza" />
+                <p>Muchos historiadores afirman que la pizza, tal y como se conoce en la actualidad, procede de la
+                    ciudad de Nápoles (Italia) y aparece como plato popular entre los napolitanos, en algún momento no
+                    definido del siglo XVII.</p>
+                <p>Los panes planos y las preparaciones fundamentadas en ellos, como la pizza, son típicos de las
+                    cocinas mediterráneas.</p>
+        </div>
+
     </div>
     <div class="content">
         <form id="form_contacto" class="form_contacto" action="">

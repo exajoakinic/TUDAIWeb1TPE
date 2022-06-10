@@ -11,20 +11,19 @@
 
 <body>
     <header>
-        <div class="logo_y_responsive">
-            <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-            <a class="btn_responsive">MENÚ</a>
-        </div>
-        <nav class="nav_bar">
+        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
+        <img src="images/menu-icon.svg" alt="MENU" class="btn_menu_nav botones hide_from_tablet"/>
+        <nav class="nav_bar show_from_tablet">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="menu.html">Menú</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-                <li><a href="index.html#form_contacto">Contacto</a></li>
+                <li class="botones"><a href="index.html">Inicio</a></li>
+                <li class="botones"><a href="menu.html">Menú</a></li>
+                <li class="botones"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="botones"><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
         </nav>    
+        <script src="js/script_nav.js"></script>
     </header>
-    
+
     <div class='content'>
         <div class='contenido_principal'>
             <p>En esta seccion podran encontrar una tabla de referencia con los platos que podemos ofrecerles:</p>
@@ -41,7 +40,7 @@
                 </tbody>
             </table>
             
-            <form id="form_menu" action="">
+            <form id="form_menu" class="form_menu" action="">
                 <h2>Agregar Plato Al Menú</h2>
                 <label>
                     Nombre
@@ -77,12 +76,10 @@
             </form>
         </div>
 
-        <button class="cont_opcional">¿Quieres ver una curiosidad?</button>
-
-        <div class='contenido_secundario'>
-            <p>Aqui podemos ofrecerles un listado de los platos mas pedidos:</p>
+        <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres conocer nuestros platos más vendidos?</button>
+        <div class='contenido_secundario cont_opcional show_from_tablet'>
             <div class="lista">
-                <p CLASS="top_lista">TOP 5</p>
+                <p CLASS="top_lista">TOP 5 PLATOS MÁS VENDIDOS</p>
                 <ol>
                     <li>Ratatouille</li>
                     <li>Pizza Napolitana</li>

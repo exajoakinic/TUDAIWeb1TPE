@@ -22,8 +22,11 @@ body {
 
 header{
     padding:10px;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    min-height: 122px;
 }
 
 .content {
@@ -44,79 +47,63 @@ header {
 }
 form,  table {
     background-color: rgba(255,255,255,0.7);
-}
-.logo_y_responsive{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 15px;
 }
 
 #logo {
-    height: 60px;
+    height: 100px;
 }
 
-.logo_y_responsive a{
-    padding: 10px 10px;
-    color: black;
-    align-items: center;
+header .btn_menu_nav {
+    padding: 5px;
+    width: 30px;
     background-color: rgba(125, 202, 131, 0.8);
-    margin: 10px 10px 10px 10px;
-    list-style: none;
-    border-radius: 10px;
-    border-color: black;
-    border-style:solid;
-    height: auto;
-    width: auto;
+    border: solid black 2px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    text-align: center;
 }
 
 header nav ul {
     display:flex;
     flex-wrap: wrap;
-    margin-block-start: 0px;
-    margin-block-end: 5px;
-    
+    margin:0;
+    padding: 0;
 }
 
 header ul{
     padding: 10px;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
-.nav_bar{
-    display:flex;
-    display:none;
+.cont_opcional {
+    width: 100%;
+    display: none;
 }
 
-.show{
-    display:block;
-}
-
-header nav ul li {
+.botones {
     display:flex;
     color: black;
     align-items: center;
-    margin: 0px 0px 0px 0px;
     background-color: rgba(125, 202, 131, 0.8);
-    padding: 0;
     margin-left: 5px;
     margin-top: 5px;
-    list-style: none;
     border-radius: 10px;
     border-color: black;
     border-style:solid;
-    height: 40px;
-    width: 200px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
-header nav ul li:hover  {
+.botones:hover  {
     background-color: rgba(38, 168, 84, 0.8);
 }
-header nav ul li a:hover {
+.botones:hover {
     color:black;
 }
+header nav ul li {
+    height: 40px;
+    width: 110px;
+    list-style: none;
+}
+
 header nav ul li a {
     text-decoration: none;
     color:black;
@@ -139,25 +126,20 @@ h1 {
     font-size: 1.5rem;
 }
 
-body>div.content aside, .contenido_principal {
+.contenido_secundario, .contenido_principal {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
     justify-content: space-around;
+    margin-bottom: 15px;
 }
 
 .contenido_principal {
     width: 100%;
 }
 
-.cont_opcional {
-    width: 100%;
-    display: none;
-}
-
 .contenido_secundario > img {
     max-width: 60%;
-
 } 
 
 .contenido_secundario p{
@@ -177,25 +159,38 @@ form {
     border-style: solid;
     border:1px solid;
     border-radius: 10px;
-    width: 75%;
+    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
     padding:30px;
-    min-height: 900px;
     margin-top: 0px;
     margin-bottom: 20px;
     margin-block-end: 5px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
+.form_menu {
+    width: auto;
+}
 
-form label, .form_contacto  input, .form_contacto textarea {
+form label, form  input, .form_contacto textarea, form * {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 40px;
     width: 100%;
     border-radius: 5px;
     box-sizing: border-box;
     padding:10px;
     margin-top:5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
-
+form label {
+    display: flex;
+}
+form label * {
+    width: auto;
+    display: inline;
+}
 form  textarea {
     height:200px;
 }
@@ -364,35 +359,60 @@ footer p{
     color: rgb(0,155,0);
 }
 
-.curiosidad{
-    padding: 10px 10px;
-    margin-left: 20px;
-    color: black;
-    align-items: center;
-    background-color: rgba(125, 202, 131, 0.8);
-    margin: 10px 10px 10px 10px;
-    list-style: none;
-    border-radius: 10px;
-    border-color: black;
-    border-style:solid;
-    height: auto;
-    min-width: 250px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-.mostrar{
-    display: block;
-}
-
 form h2, label{
     font-size:1rem;
 }
+
+
+.show_from_tablet{
+    display:none;
+}.show {
+    display: flex;
+}
+
+.btn_cont_opcional {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+@media screen and (min-width: 375px){
+    header {
+        flex-wrap: nowrap;
+    }
+    header .btn_menu_nav {
+        order:1;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 767px) {
+    header nav ul  {
+        max-width: 350px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .nav_bar{
-        display:block;
+        display:flex;
     }
-    
+    .hide_from_tablet {
+        display:none;
+    }
+    .show_from_tablet{
+        display:flex;
+    }
+    header nav ul li {
+        width: 110px;
+    }
+    .content {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
     .frase_con_img:nth-child(2n+1) {
         flex-direction: row-reverse;
     }
@@ -407,5 +427,12 @@ form h2, label{
         flex-wrap: nowrap;
         max-width: none;
     }
-    
+
+    .contenido_principal {
+        width: 65%;
+    }
+    .contenido_secundario {
+        width:25%;
+    }
+
 }
