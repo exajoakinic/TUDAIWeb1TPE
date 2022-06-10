@@ -384,6 +384,10 @@ form h2, label{
     margin-bottom: 15px;
 }
 
+table tbody tr.fila_resaltada {
+    background-color: #82cfb3 ;
+}
+
 @media screen and (min-width: 375px){
     header {
         flex-wrap: nowrap;

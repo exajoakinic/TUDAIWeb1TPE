@@ -3,6 +3,7 @@ let tableMenuTbody
 let formulario
 
 document.addEventListener("DOMContentLoaded", function() {
+    debugger;
     tableMenuTbody = document.querySelector("#table-menu tbody");
     formulario = document.querySelector("#form_menu");
     inicializarTabla()
@@ -22,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
         tableMenuTbody.innerHTML="";
         menu = [];
     });
-
-    
 });
 
 let menu = [
@@ -122,11 +121,10 @@ let menu = [
 
 // FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 function inicializarTabla() {
-    let filas = "";
+    debugger;
     for (let elem of menu) {
-        filas += "<tr>" + htmlMenuRow(elem) + "</tr>";
+        addToTable(elem);
     }
-    tableMenuTbody.innerHTML = filas;
 }
 function htmlMenuRow(plato) {
     let r 
@@ -192,6 +190,9 @@ function addFormAsRow() {
 function addToTable(plato) {
     let fila = document.createElement("tr");
     fila.innerHTML  = htmlMenuRow(plato);
+    if (plato.origen=="Italia") {
+        fila.classList.add("fila_resaltada");
+    }
     menu.push(plato);
     tableMenuTbody.appendChild(fila);
 }

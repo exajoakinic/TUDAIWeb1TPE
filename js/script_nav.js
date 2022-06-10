@@ -7,15 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
     elementoCuriosidad = document.querySelector(".cont_opcional")
 
     document.querySelector(".btn_menu_nav").addEventListener("click", function() {
-        toggleShow(elementoMenu);
+        elementoMenu.classList.toggle("show");
     });
 
     document.querySelector(".btn_cont_opcional").addEventListener("click", function() {
-        toggleShow(elementoCuriosidad);
+        elementoCuriosidad.classList.toggle("show");
     });
 
 })
-
-function toggleShow(elemento){
-    elemento.classList.toggle("show");
-}
