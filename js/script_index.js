@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let pregunta = document.querySelector("#label_captcha");
     let respuesta = document.querySelector("#respuesta_captcha");
     let sumaCaptcha;
+    let btn = document.querySelector(".btn_submit");
     randomizeCaptcha();
 
 

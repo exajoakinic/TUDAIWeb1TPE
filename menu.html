@@ -12,7 +12,7 @@
 <body>
     <header>
         <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <img src="images/menu-icon.svg" alt="MENU" class="btn_menu_nav botones hide_from_tablet"/>
+        <img src="images/menu-icon.svg" alt="MENU" class="btn_menu_nav botones hide_from_tablet" />
         <nav class="nav_bar show_from_tablet">
             <ul>
                 <li class="botones"><a href="index.html">Inicio</a></li>
@@ -20,7 +20,7 @@
                 <li class="botones"><a href="ubicacion.html">Ubicación</a></li>
                 <li class="botones"><a href="index.html#form_contacto">Contacto</a></li>
             </ul>
-        </nav>    
+        </nav>
         <script src="js/script_nav.js"></script>
     </header>
 
@@ -39,20 +39,22 @@
                 <tbody>
                 </tbody>
             </table>
-            
+
             <form id="form_menu" class="form_menu" action="">
-                <h2>Agregar Plato Al Menú</h2>
-                <label>
-                    Nombre
+                <div class="form_col">
+                    <h2>Agregar Plato Al Menú</h2>
+                    <label>
+                        Nombre
+                    </label>
                     <Input type="text" name="nombre" required />
-                </label>
-                
-                <label>
-                    Precio
+
+                    <label>
+                        Precio
+                    </label>
                     <Input type="number" name="precio" required />
-                </label>
-                <label>
-                    Origen
+                    <label>
+                        Origen
+                    </label>
                     <select name="origen">
                         <option>India</option>
                         <option>Italia</option>
@@ -60,23 +62,25 @@
                         <option>México</option>
                         <option>Portugal</option>
                     </select>
-                </label>
-                <label>
-                    Apto Vegetarianos
-                    <Input type="checkbox" name="apto_veg" />
-                </label>
-                <label>
-                    Apto Celíacos
-                    <Input type="checkbox" name="apto_celiacos" />
-                </label>
-                
-                <input type="button" class="btn_form" name="btn_agregar" value="Agregar"/>
-                <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3"/>
-                <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú"/>
+                    <label>
+                        Apto Vegetarianos
+                        <Input type="checkbox" name="apto_veg" />
+                    </label>
+                    <label>
+                        Apto Celíacos
+                        <Input type="checkbox" name="apto_celiacos" />
+                    </label>
+                </div>
+                <div class="form_col">
+                    <input type="button" class="btn_form" name="btn_agregar" value="Agregar" />
+                    <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3" />
+                    <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú" />
+                </div>
             </form>
         </div>
 
-        <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres conocer nuestros platos más vendidos?</button>
+        <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres conocer nuestros platos más
+            vendidos?</button>
         <div class='contenido_secundario cont_opcional show_from_tablet'>
             <div class="lista">
                 <p CLASS="top_lista">TOP 5 PLATOS MÁS VENDIDOS</p>
@@ -97,4 +101,5 @@
     </footer>
 </body>
 <script src="js/script_menu.js"></script>
+
 </html>
