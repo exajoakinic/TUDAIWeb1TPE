@@ -120,6 +120,7 @@ header nav ul li a {
     display:flex;
     justify-content: space-around;
     align-items: center;
+    cursor:pointer;
 }
 
 h1 {
@@ -311,12 +312,10 @@ span img{
     visibility: visible;
 }
 .apto, .origen {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     visibility: hidden;
     position:relative;
+    width:1em;
 }
 
 
@@ -388,7 +387,14 @@ table tbody tr.fila_resaltada {
     background-color: #82cfb3 ;
 }
 
-@media screen and (min-width: 375px){
+td.btn_row button {
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+@media only screen and (min-width: 375px){
     header {
         flex-wrap: nowrap;
     }
@@ -396,13 +402,13 @@ table tbody tr.fila_resaltada {
         order:1;
     }
 }
-@media screen and (min-width: 500px) and (max-width: 767px) {
+@media only screen and (min-width: 500px) and (max-width: 767px) {
     header nav ul  {
         max-width: 350px;
     }
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .nav_bar{
         display:flex;
     }
@@ -437,7 +443,7 @@ table tbody tr.fila_resaltada {
     }
 
     .contenido_principal {
-        width: 65%;
+        width: 70%;
     }
     .contenido_secundario {
         width:25%;
@@ -449,6 +455,6 @@ table tbody tr.fila_resaltada {
         width:40%;
     }
     form .form_col:nth-child(2) input {
-        height: 33%;
+        height: 25%;
     }
 }

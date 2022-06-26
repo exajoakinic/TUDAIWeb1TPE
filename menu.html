@@ -1,105 +1,94 @@
-<!DOCTYPE html>
-<html lang="es">
+<div class='content'>
+    <div class='contenido_principal'>
+        <p>En esta seccion podran encontrar una tabla de referencia con los platos que podemos ofrecerles:</p>
+        <table id="table-menu">
+            <thead>
+                <tr>
+                    <th>Plato</th>
+                    <th>Precio</th>
+                    <th>Origen</th>
+                    <th>Apto:</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Restaurante Bon Appétit</title>
-</head>
+        <form id="form_menu" class="form_menu" action="">
+            <div class="form_col">
+                <h2>Agregar Plato Al Menú</h2>
+                <label for="nombre">Nombre</label>
+                <Input type="text" name="nombre" required />
 
-<body>
-    <header>
-        <img id="logo" src="images/logo.png" alt="Logo Restaurante Bon Appétit">
-        <img src="images/menu-icon.svg" alt="MENU" class="btn_menu_nav botones hide_from_tablet" />
-        <nav class="nav_bar show_from_tablet">
-            <ul>
-                <li class="botones"><a href="index.html">Inicio</a></li>
-                <li class="botones"><a href="menu.html">Menú</a></li>
-                <li class="botones"><a href="ubicacion.html">Ubicación</a></li>
-                <li class="botones"><a href="index.html#form_contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        <script src="js/script_nav.js"></script>
-    </header>
-
-    <div class='content'>
-        <div class='contenido_principal'>
-            <p>En esta seccion podran encontrar una tabla de referencia con los platos que podemos ofrecerles:</p>
-            <table id="table-menu">
-                <thead>
-                    <tr>
-                        <th>Plato</th>
-                        <th>Precio</th>
-                        <th>Origen</th>
-                        <th>Apto:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-
-            <form id="form_menu" class="form_menu" action="">
-                <div class="form_col">
-                    <h2>Agregar Plato Al Menú</h2>
-                    <label>
-                        Nombre
-                    </label>
-                    <Input type="text" name="nombre" required />
-
-                    <label>
-                        Precio
-                    </label>
-                    <Input type="number" name="precio" required />
-                    <label>
-                        Origen
-                    </label>
-                    <select name="origen">
-                        <option>India</option>
-                        <option>Italia</option>
-                        <option>Grecia</option>
-                        <option>México</option>
-                        <option>Portugal</option>
-                    </select>
-                    <label>
-                        Apto Vegetarianos
-                        <Input type="checkbox" name="apto_veg" />
-                    </label>
-                    <label>
-                        Apto Celíacos
-                        <Input type="checkbox" name="apto_celiacos" />
-                    </label>
-                </div>
-                <div class="form_col">
-                    <input type="button" class="btn_form" name="btn_agregar" value="Agregar" />
-                    <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3" />
-                    <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú" />
-                </div>
-            </form>
-        </div>
-
-        <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres conocer nuestros platos más
-            vendidos?</button>
-        <div class='contenido_secundario cont_opcional show_from_tablet'>
-            <div class="lista">
-                <p CLASS="top_lista">TOP 5 PLATOS MÁS VENDIDOS</p>
-                <ol>
-                    <li>Ratatouille</li>
-                    <li>Pizza Napolitana</li>
-                    <li>Lasagna</li>
-                    <li>Falafel</li>
-                    <li>Bacalao Dorado</li>
-                </ol>
+                <label for="precio">Precio</label>
+                <Input type="number" name="precio" required />
+                <label for="origen">Origen</label>
+                <select name="origen">
+                    <option>India</option>
+                    <option>Italia</option>
+                    <option>Grecia</option>
+                    <option>México</option>
+                    <option>Portugal</option>
+                </select>
+                <label for="apto_veg">
+                    Apto Vegetarianos
+                    <Input type="checkbox" name="apto_veg" />
+                </label>
+                <label for="apto_celiacos">
+                    Apto Celíacos
+                    <Input type="checkbox" name="apto_celiacos" />
+                </label>
             </div>
+            <div class="form_col">
+                <input type="button" class="btn_form" name="btn_agregar" value="Agregar" />
+                <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3" />
+                <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú" />
+                <input type="button" class="btn_form" name="btn_menu_pregargado" value="Menú Precargado" />
+            </div>
+        </form>
+        <div class="div_form_menu">
+            <form id="form_editar_plato" class="form_menu" action="">
+                <h2>Editar Plato del Menú</h2>
+                <label for="id">id</label>
+                <Input type="number" name="id" required />
+                <label for="nombre">Nombre</label>
+                <Input type="text" name="nombre" required />
+                <label for="precio">Precio</label>
+                <Input type="number" name="precio" required />
+                <label for="origen">Origen</label>
+                <select name="origen">
+                    <option>India</option>
+                    <option>Italia</option>
+                    <option>Grecia</option>
+                    <option>México</option>
+                    <option>Portugal</option>
+                </select>
+                <label for="apto_veg">
+                    Apto Vegetarianos
+                    <Input type="checkbox" name="apto_veg" />
+                </label>
+                <label for="apto_celiacos">
+                    Apto Celíacos
+                    <Input type="checkbox" name="apto_celiacos" />
+                </label>
+                <input type="submit" class="btn_form" name="btn_guardar" value="Guardar" />
+                <input type="button" class="btn_form" name="btn_cancelar" value="Cancelar" />
+            </form>
         </div>
     </div>
 
-    <footer>
-        <p>C7 - Iglesias Coqueti Joaquin y Del Sole Enzo</p>
-        <p>Creada por estudiantes de primer año de TUDAI</p>
-    </footer>
-</body>
-<script src="js/script_menu.js"></script>
-
-</html>
+    <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres conocer nuestros platos más
+        vendidos?</button>
+    <div class='contenido_secundario cont_opcional show_from_tablet'>
+        <div class="lista">
+            <p CLASS="top_lista">TOP 5 PLATOS MÁS VENDIDOS</p>
+            <ol>
+                <li>Ratatouille</li>
+                <li>Pizza Napolitana</li>
+                <li>Lasagna</li>
+                <li>Falafel</li>
+                <li>Bacalao Dorado</li>
+            </ol>
+        </div>
+    </div>
+</div>

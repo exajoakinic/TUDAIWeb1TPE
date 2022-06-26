@@ -1,0 +1,93 @@
+[
+    {
+        "nombre": "Lasagna",
+        "precio": 350,
+        "origen": "Italia",
+        "apto_veg": false,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Pizza Napolitana",
+        "precio": 370,
+        "origen": "Italia",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Calzone de Verdura",
+        "precio": 280,
+        "origen": "Italia",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Bruschetta",
+        "precio": 330,
+        "origen": "Italia",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Ratatouille",
+        "precio": 500,
+        "origen": "Italia",
+        "apto_veg": true,
+        "apto_celiacos": true
+    },
+    {
+        "nombre": "Briami Grigo",
+        "precio": 540,
+        "origen": "Grecia",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Musaka",
+        "precio": 290,
+        "origen": "Grecia",
+        "apto_veg": false,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Risotto",
+        "precio": 360,
+        "origen": "Grecia",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Albondigas Con Salsa de Limón",
+        "precio": 450,
+        "origen": "Grecia",
+        "apto_veg": false,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Ensalada César Sin Gluten",
+        "precio": 520,
+        "origen": "México",
+        "apto_veg": false,
+        "apto_celiacos": true
+    },
+    {
+        "nombre": "Gazpacho Andaluz Tradicional",
+        "precio": 330,
+        "origen": "España",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Falafel",
+        "precio": 390,
+        "origen": "India",
+        "apto_veg": true,
+        "apto_celiacos": false
+    },
+    {
+        "nombre": "Bacalao Dorado",
+        "precio": 600,
+        "origen": "Portugal",
+        "apto_veg": false,
+        "apto_celiacos": true
+    }
+]

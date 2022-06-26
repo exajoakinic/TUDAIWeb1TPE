@@ -1,0 +1,51 @@
+<div class='content'>
+    <h1>Restaurante Bon Appétit</h1>
+    <p class="upper_content">Un lugar donde los mejores saberes de la cocina italiana están a la orden del plato,
+        para el deleite de la dama, para el deleite del caballero. ¡Bon Appétit!</p>
+
+    <div class='contenido_principal'>
+        <div class="frase_con_img">
+            <img src="images/ingredientes_calidad.jpg" alt="Ingredientes de Calidad" />
+            <p>Con ingredientes de primera calidad y los mejores estándares aseguramos realzar el sabor de tus
+                comidas.</p>
+        </div>
+        <div class="frase_con_img">
+            <img src="images/cocina_mediterranea.jpg" alt="Cocina Mediterránea" />
+            <p>Incorporamos las mejores recetas de la cocina mediterránea.</p>
+        </div>
+        <div class="frase_con_img">
+            <img src="images/equipo.jpg" alt="Equipo Gastronómico" />
+            <p>Con un equipo de profesionales amantes del arte de la cocina, propuestos a deleitarlo para que se
+                sienta como en casa.</p>
+        </div>
+    </div>
+
+    <button class="btn_cont_opcional botones hide_from_tablet">¿Quieres ver una curiosidad?</button>
+    <div class='contenido_secundario cont_opcional show_from_tablet'>
+            <img src="images/pizza.jpg" alt="pizza" />
+            <p>Muchos historiadores afirman que la pizza, tal y como se conoce en la actualidad, procede de la
+                ciudad de Nápoles (Italia) y aparece como plato popular entre los napolitanos, en algún momento no
+                definido del siglo XVII.</p>
+            <p>Los panes planos y las preparaciones fundamentadas en ellos, como la pizza, son típicos de las
+                cocinas mediterráneas.</p>
+    </div>
+
+</div>
+<div class="content">
+    <form id="form_contacto" class="form_contacto" action="">
+        <h2>Formulario de contacto</h2>
+        <label>Nombre y Apellido:</label>
+        <Input type="text" name="nombre" required />
+        <label>E-Mail:</label>
+        <Input type="email" name="email" required />
+        <label>Teléfono:</label>
+        <Input type="tel" name="telefono" required />
+        <label>Mensaje:</label>
+        <textarea id="subject" name="subject"
+            placeholder="Intente ser lo más descriptivo posible. Muchas gracias!"></textarea>
+        <label id="label_captcha"></label>
+        <input type="text" id="respuesta_captcha" required />
+        <input type="submit" class="btn_submit" />
+        <div id="mensaje_al_enviar"></div>
+    </form>
+</div>
