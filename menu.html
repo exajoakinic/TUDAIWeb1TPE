@@ -14,7 +14,7 @@
             </tbody>
         </table>
 
-        <form id="form_menu" class="form_menu" action="">
+        <form class="form_menu" id="form_agregar_plato" action="">
             <div class="form_col">
                 <h2>Agregar Plato Al Menú</h2>
                 <label for="nombre">Nombre</label>
@@ -32,12 +32,12 @@
                 </select>
                 <label for="apto_veg">
                     Apto Vegetarianos
-                    <Input type="checkbox" name="apto_veg" />
                 </label>
+                <Input type="checkbox" name="apto_veg" />
                 <label for="apto_celiacos">
                     Apto Celíacos
-                    <Input type="checkbox" name="apto_celiacos" />
                 </label>
+                <Input type="checkbox" name="apto_celiacos" />
             </div>
             <div class="form_col">
                 <input type="button" class="btn_form" name="btn_agregar" value="Agregar" />
@@ -47,7 +47,7 @@
             </div>
         </form>
         <div class="div_form_menu">
-            <form id="form_editar_plato" class="form_menu" action="">
+            <form class="form_menu" id="form_editar_plato" action="">
                 <h2>Editar Plato del Menú</h2>
                 <label for="id">id</label>
                 <Input type="number" name="id" required />
@@ -63,14 +63,10 @@
                     <option>México</option>
                     <option>Portugal</option>
                 </select>
-                <label for="apto_veg">
-                    Apto Vegetarianos
-                    <Input type="checkbox" name="apto_veg" />
-                </label>
-                <label for="apto_celiacos">
-                    Apto Celíacos
-                    <Input type="checkbox" name="apto_celiacos" />
-                </label>
+                <label for="apto_veg"> Apto Vegetarianos </label>
+                <Input type="checkbox" name="apto_veg" />
+                <label for="apto_celiacos"> Apto Celíacos </label>
+                <Input type="checkbox" name="apto_celiacos" />
                 <input type="submit" class="btn_form" name="btn_guardar" value="Guardar" />
                 <input type="button" class="btn_form" name="btn_cancelar" value="Cancelar" />
             </form>

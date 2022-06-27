@@ -124,26 +124,34 @@ function inicializarHome() {
 async function inicializarMenu() {
     const urlMockapi = "https://62b88fd6f4cb8d63df5fce28.mockapi.io/api/v1/platos/"
     let tableMenuTbody = document.querySelector("#table-menu tbody");
-    let formulario = document.querySelector("#form_menu");
+    let form_agregar_plato = document.querySelector("#form_agregar_plato");
     let form_editar_plato = document.querySelector("#form_editar_plato");   
-    
+    let div_form_menu =  document.querySelector(".div_form_menu");   
+
     form_editar_plato.id.disabled = true;
 
     recargarTabla(await jsonMenuFromMockapi());
 
-    formulario.btn_agregar.addEventListener("click", function () {
+    form_editar_plato.addEventListener("submit", function(e){
+        e.preventDefault();
+        modificarPlato();
+    });
+    form_editar_plato.btn_cancelar.addEventListener("click", ocultarEdicionPlato);
+    //form_editar_plato.addEventListener("focusout", ocultarEdicionPlato);
+
+    form_agregar_plato.btn_agregar.addEventListener("click", function () {
         if (formulario.reportValidity()) {
             addFormAsRow();
         }
     });
-    formulario.btn_agregarx3.addEventListener("click", function () {
-        if (formulario.reportValidity()) {
+    form_agregar_plato.btn_agregarx3.addEventListener("click", function () {
+        if (form_agregar_plato.reportValidity()) {
             for (let i = 0; i < 3; i++) {
                 addFormAsRow();
             }
         }
     });
-    formulario.btn_limpiar.addEventListener("click", function () {
+    form_agregar_plato.btn_limpiar.addEventListener("click", function () {
         tableMenuTbody.innerHTML = "";
         //corregir con mockapi
         menu = [];
@@ -177,19 +185,23 @@ async function inicializarMenu() {
     }
     // FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
     function recargarTabla(menu) {
-        let filas = "";
-
         for (let plato of menu) {
-            let fila = document.createElement("tr");
-
-            if (plato.origen == "Italia") {
-                fila.classList.add("fila_resaltada");
-            }
-            fila.innerHTML = htmlMenuRow(plato);
+            let fila = crearFila(plato);
             tableMenuTbody.appendChild(fila);
-            addButtonsModifyAndDelete(fila, plato);
         }
     };
+
+    //crea la fila y la devuelve, sin agregarla a la tabla
+    function crearFila(plato) {
+        let fila = document.createElement("tr");
+        fila.id = plato.id;
+        if (plato.origen == "Italia") {
+            fila.classList.add("fila_resaltada");
+        }
+        fila.innerHTML = htmlMenuRow(plato);
+        addButtonsModifyAndDelete(fila, plato);
+        return fila;
+    }
 
     function addButtonsModifyAndDelete(fila, plato){
         let celda = document.createElement("td");
@@ -203,8 +215,20 @@ async function inicializarMenu() {
         let btnEliminar = document.createElement("button");
         btnEliminar.innerHTML = "Eliminar";
         celda.appendChild(btnEliminar);
-        btnEliminar.addEventListener("click", function() {
-
+        btnEliminar.addEventListener("click", async function() {
+            try {
+                let res = await fetch(urlMockapi + plato.id, {
+                    method: 'DELETE',
+                    body : ""
+                });
+                if (res.ok) {
+                    console.log("Plato eliminado");
+                    tableMenuTbody.removeChild(fila);
+                }
+            }
+            catch {
+                console.log("no se pudo eliminar el plato")
+            }
         })
         fila.appendChild(celda);
     };
@@ -215,25 +239,68 @@ async function inicializarMenu() {
         f.nombre.value = plato.nombre;
         f.precio.value = plato.precio;
         f.origen.value = plato.origen;
-        f.apto_veg.value = plato.apto_veg;
-        f.apto_celiacos.value = plato.apto_celiacos;
+        f.apto_veg.checked = plato.apto_veg;
+        f.apto_celiacos.checked = plato.apto_celiacos;
+        div_form_menu.classList.add("mostrar");
+        f.nombre.focus(); //llevo el foco al input nombre
     }
-    async function guardarPlato() {
-        let f = form_editar_plato;
+    function ocultarEdicionPlato() {
+        div_form_menu.classList.remove("mostrar");
+    }
+    async function modificarPlato() {
+            let f = form_editar_plato;
         let plato = {
             "id" : f.id.value,
             "nombre" : f.nombre.value,
             "precio" : f.precio.value,
-            "origen" : f.origen,
-            "apto_veg" : f.apto_veg,
-            "apto_celiacos" : f.apto_celiacos
+            "origen" : f.origen.value,
+            "apto_veg" : f.apto_veg.checked,
+            "apto_celiacos" : f.apto_celiacos.checked
+        };
+
+        try {
+            let res = await fetch(urlMockapi + plato.id, {
+                method: 'PUT',
+                body: JSON.stringify(plato),
+                headers: {
+                    'content-type':'application/json'
+                }
+            });
+            if (res.ok) {
+                console.log("Plato actualizado");
+                actualizarPlatoEnTabla(plato.id);
+            }
+        }
+        catch {
+            console.log("no se pudo actualizar el plato")
+        }
+    }
+    async function actualizarPlatoEnTabla(id) {
+        try {
+            let plato = await jsonPlatoFromMockapi(id);
+            let actualizado = false;
+            let fila = tableMenuTbody.firstElementChild;
+            while(fila && !actualizado) {
+                if (fila.id == id) {
+                    actualizado = true;
+                    tableMenuTbody.insertBefore(crearFila(plato), fila);
+                    tableMenuTbody.removeChild(fila);
+                    ocultarEdicionPlato();
+                } else {
+                    fila = fila.nextElementSibling;
+                }
+
+            }
+        }
+        catch(e) {
+            console.log("error al solicitar el plato con id " + id)
+            console.log(e);
         }
     }
 
 
     function reescribirMockapi() {
         let filas = "";
-
 
         for (let elem of menu) {
             if (elem.origen == "Italia") {

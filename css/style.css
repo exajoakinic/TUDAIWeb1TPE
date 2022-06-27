@@ -1,5 +1,5 @@
 html {
-    display:flex;
+    display: flex;
     justify-content: space-around;
 }
 
@@ -8,20 +8,22 @@ body {
     background-attachment: fixed;
     background-size: 100%;
     max-width: 1024px;
-    margin:20px ;
+    margin: 20px;
     border-radius: 15px;
     border: black 2px solid;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.content,footer, .frase_con_img {
-    padding:10px;
+.content,
+footer,
+.frase_con_img {
+    padding: 10px;
     justify-content: flex-start;
     align-items: center;
-}   
+}
 
-header{
-    padding:10px;
+header {
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,17 +42,20 @@ footer {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 footer * {
-    color:rgba(252, 244, 175, 0.884);
+    color: rgba(252, 244, 175, 0.884);
     align-content: space-between;
 }
 
 header {
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px 15px 0 0;
 }
-form,  table {
-    background-color: rgba(255,255,255,0.7);
+
+form,
+table {
+    background-color: rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
 }
 
@@ -63,17 +68,17 @@ header .btn_menu_nav {
     width: 30px;
     background-color: rgba(125, 202, 131, 0.8);
     border: solid black 2px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 header nav ul {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
-header ul{
+header ul {
     padding: 10px;
     justify-content: center;
     align-items: center;
@@ -85,7 +90,7 @@ header ul{
 }
 
 .botones {
-    display:flex;
+    display: flex;
     color: black;
     align-items: center;
     background-color: rgba(125, 202, 131, 0.8);
@@ -93,15 +98,18 @@ header ul{
     margin-top: 5px;
     border-radius: 10px;
     border-color: black;
-    border-style:solid;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    border-style: solid;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
-.botones:hover  {
+
+.botones:hover {
     background-color: rgba(38, 168, 84, 0.8);
 }
+
 .botones:hover {
-    color:black;
+    color: black;
 }
+
 header nav ul li {
     height: 40px;
     width: 110px;
@@ -110,28 +118,29 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color:black;
+    color: black;
     text-transform: uppercase;
-    font-weight:bolder;
+    font-weight: bolder;
 
     width: 100%;
     height: 100%;
 
-    display:flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 h1 {
-    width:100%;
+    width: 100%;
     text-align: center;
-    font-style:oblique;
+    font-style: oblique;
     text-align: center;
     font-size: 1.5rem;
 }
 
-.contenido_secundario, .contenido_principal {
+.contenido_secundario,
+.contenido_principal {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
@@ -143,11 +152,11 @@ h1 {
     width: 100%;
 }
 
-.contenido_secundario > img {
+.contenido_secundario>img {
     max-width: 80%;
-} 
+}
 
-.contenido_secundario p{
+.contenido_secundario p {
     padding: 10px 10px 10px 10px;
     font-size: 0.75rem;
 }
@@ -158,22 +167,25 @@ img {
 
 form {
     border-style: solid;
-    border:1px solid;
+    border: 1px solid;
     border-radius: 10px;
     box-sizing: border-box;
     width: 90%;
     margin: auto;
-    padding:30px;
+    padding: 30px;
     margin-top: 0px;
     margin-bottom: 20px;
     margin-block-end: 5px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-wrap: wrap;
 }
 
 
-form label, form  input, .form_contacto textarea, form *  {
+form label,
+form input,
+.form_contacto textarea,
+form * {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     align-items: center;
@@ -182,16 +194,17 @@ form label, form  input, .form_contacto textarea, form *  {
     width: 100%;
     border-radius: 5px;
     box-sizing: border-box;
-    padding:10px;
-    margin-top:5px;
+    padding: 10px;
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
-form  textarea {
-    height:200px;
+form textarea {
+    height: 200px;
 }
 
-.btn_submit, .btn_form {
+.btn_submit,
+.btn_form {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -199,52 +212,60 @@ form  textarea {
     border-radius: 4px;
     cursor: pointer;
 }
+
 .btn_form {
     border: 1px black solid;
     font-size: 1rem;
 }
-  
-.btn_submit:hover, .btn_form:hover {
+
+.btn_submit:hover,
+.btn_form:hover {
     background-color: #45a049;
 }
 
-.btn_disabled, .btn_disabled:hover {
+.btn_disabled,
+.btn_disabled:hover {
     background-color: grey;
-    cursor:initial;
+    cursor: initial;
 }
 
 form .form_col {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
+
 form .form_col:nth-child(2) input {
     display: flex;
     justify-content: center;
 }
 
-table{
-    padding:15px 10px;
+table {
+    padding: 15px 10px;
     border-radius: 15px;
     border: 2px dashed black;
     max-width: 90%;
     text-align: center;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 table tbody tr td:first-child {
     text-align: left;
 }
-table thead tr{
+
+table thead tr {
     background-color: rgba(144, 133, 50, 0.5);
 }
+
 table tbody tr:nth-child(2n+0) {
-    background-color:rgba(220, 220, 220, .3);
+    background-color: rgba(220, 220, 220, .3);
 }
 
 table tbody tr:nth-child(2n+1) {
-    background-color:rgba(180, 180, 180, .3);
+    background-color: rgba(180, 180, 180, .3);
 }
 
-span img{
+span img {
     height: 1em;
 }
 
@@ -255,121 +276,141 @@ span img{
     align-self: center;
 }
 
-.frase_con_img img{
+.frase_con_img img {
     width: 100%;
     padding: 0px;
 }
-.frase_con_img p{
+
+.frase_con_img p {
     justify-content: flex-start;
     width: 100%;
     font-size: 0.9rem;
     padding: 20px;
 }
-.frase_con_img{
-    display:flex;
+
+.frase_con_img {
+    display: flex;
     flex-wrap: wrap;
     max-width: 350px;
 }
+
 .apto_veg:before {
     background-image: url("../images/apto_vegetarianos.png");
 }
+
 .apto_celiacos:before {
     background-image: url("../images/apto_celiacos.png");
 }
+
 .origen_argentina:before {
     background-image: url("../images/origen_argentina.png");
 }
+
 .origen_españa:before {
     background-image: url("../images/origen_españa.png");
 }
+
 .origen_grecia:before {
     background-image: url("../images/origen_grecia.png");
 }
+
 .origen_india:before {
     background-image: url("../images/origen_india.png");
 }
+
 .origen_italia:before {
-   
+
     background-image: url("../images/origen_italia.png");
 }
+
 .origden_italia:before {
     background-image: url("../images/origen_italia.png");
 }
+
 .origen_mexico:before {
     background-image: url("../images/origen_mexico.png");
 }
+
 .origen_portugal:before {
     background-image: url("../images/origen_portugal.png");
 }
-.apto:before, .origen:before {
+
+.apto:before,
+.origen:before {
     content: "";
-    display:flex;
-    position:absolute;
+    display: flex;
+    position: absolute;
     width: 1em;
     height: 1em;
     background-size: 1em;
     background-repeat: no-repeat;
     visibility: visible;
 }
-.apto, .origen {
+
+.apto,
+.origen {
     display: inline-block;
     visibility: hidden;
-    position:relative;
-    width:1em;
+    position: relative;
+    width: 1em;
 }
 
 
-p{
+p {
     text-align: justify;
 }
 
-p:first-letter{
+p:first-letter {
     margin-left: 0.5em;
 }
 
-.upper_content{
+.upper_content {
     font-size: 1rem;
 }
 
-.lista{
+.lista {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     border: 2px dashed black;
     padding: 5px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-ol{
-    padding-right:  15px;
+ol {
+    padding-right: 15px;
 }
 
-.top_lista{
+.top_lista {
     text-align: center;
-    margin:10px 0 0 0;
+    margin: 10px 0 0 0;
     background-color: rgba(144, 133, 50, 0.5);
     font-weight: 1.5rem;
 }
 
-header .main_nav li:hover{
+header .main_nav li:hover {
     background-color: rgba(87, 149, 92, 0.8);
 }
 
 .captchaBad {
-    color: rgb(255,0,0);
-}
-.captchaOK {
-    color: rgb(0,155,0);
+    color: rgb(255, 0, 0);
 }
 
-form h2, label{
-    font-size:1rem;
+.captchaOK {
+    color: rgb(0, 155, 0);
+}
+
+form h2,
+label {
+    font-size: 1rem;
     justify-content: space-around;
 }
 
 
-.show_from_tablet{
-    display:none;
-}.show {
+.show_from_tablet {
+    display: none;
+}
+
+.show {
     display: flex;
 }
 
@@ -384,45 +425,86 @@ form h2, label{
 }
 
 table tbody tr.fila_resaltada {
-    background-color: #82cfb3 ;
+    background-color: #82cfb3;
 }
 
 td.btn_row button {
-    display:inline-block;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
 
-@media only screen and (min-width: 375px){
+div.div_form_menu {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: rgba(90, 60, 100, 1);
+    background-color: rgb(199, 178, 119);
+    width: 320px;
+    right:0;
+    display: none;
+    border-radius: 15px;
+    overflow: auto;
+}
+form label[for="id"], form input[name="id"] {
+    width: 50%;
+}
+form label[for="apto_veg"], form label[for="apto_celiacos"] {
+    width:calc(100% - 2em);
+    height: 2em;
+}
+form input[name="apto_veg"], form input[name="apto_celiacos"] {
+    width: 2em;
+    height:2em;
+    margin: auto;
+}
+
+div.div_form_menu.mostrar {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*------------------------------------- MEDIA QUERIES ------------------------------------*/
+@media only screen and (min-width: 375px) {
     header {
         flex-wrap: nowrap;
     }
+
     header .btn_menu_nav {
-        order:1;
+        order: 1;
+    }
+    div.div_form_menu {
+        width:375px;
     }
 }
+
 @media only screen and (min-width: 500px) and (max-width: 767px) {
-    header nav ul  {
+    header nav ul {
         max-width: 350px;
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .nav_bar{
-        display:flex;
+    .nav_bar {
+        display: flex;
     }
+
     .hide_from_tablet {
-        display:none;
+        display: none;
     }
-    .show_from_tablet{
-        display:flex;
+
+    .show_from_tablet {
+        display: flex;
     }
+
     header nav ul li {
         width: 110px;
     }
+
     .content {
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
@@ -430,14 +512,17 @@ td.btn_row button {
     .frase_con_img:nth-child(2n+1) {
         flex-direction: row-reverse;
     }
-    .frase_con_img img{
+
+    .frase_con_img img {
         width: 45%;
         padding: 0px;
     }
-    .frase_con_img p{
+
+    .frase_con_img p {
         width: 55%;
     }
-    .frase_con_img{
+
+    .frase_con_img {
         flex-wrap: nowrap;
         max-width: none;
     }
@@ -445,16 +530,20 @@ td.btn_row button {
     .contenido_principal {
         width: 70%;
     }
+
     .contenido_secundario {
-        width:25%;
+        width: 25%;
     }
+
     form .form_col:first-child {
-        width:60%;
+        width: 60%;
     }
+
     form .form_col:nth-child(2) {
-        width:40%;
+        width: 40%;
     }
+
     form .form_col:nth-child(2) input {
-        height: 25%;
+        height: 20%;
     }
 }
