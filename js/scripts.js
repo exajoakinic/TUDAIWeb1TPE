@@ -151,10 +151,20 @@ async function inicializarMenu() {
             }
         }
     });
-    form_agregar_plato.btn_limpiar.addEventListener("click", function () {
-        tableMenuTbody.innerHTML = "";
-        //corregir con mockapi
-        menu = [];
+    form_agregar_plato.btn_limpiar.addEventListener("click", async function () {
+        try {
+            let menu = await jsonMenuFromMockapi();
+            for (let plato of menu) {
+                deletePlatoFromMenu(plato.id);
+            }
+            
+            recargarTabla(await jsonMenuFromMockapi());
+            //corregir con mockapi
+        }
+        catch(e) {
+            console.log("Error al intentar eliminar todos los platos");
+            console.log(e);
+        }
     });
     
     async function jsonMenuFrom(url) {
@@ -216,22 +226,29 @@ async function inicializarMenu() {
         btnEliminar.innerHTML = "Eliminar";
         celda.appendChild(btnEliminar);
         btnEliminar.addEventListener("click", async function() {
-            try {
-                let res = await fetch(urlMockapi + plato.id, {
-                    method: 'DELETE',
-                    body : ""
-                });
-                if (res.ok) {
-                    console.log("Plato eliminado");
-                    tableMenuTbody.removeChild(fila);
+            if (await deletePlatoFromMenu(plato.id)) {
+                   tableMenuTbody.removeChild(fila);
                 }
-            }
-            catch {
-                console.log("no se pudo eliminar el plato")
-            }
         })
         fila.appendChild(celda);
     };
+
+    async function deletePlatoFromMenu(id) {
+        try {
+            let res = await fetch(urlMockapi + id, {
+                method: 'DELETE',
+                body : ""
+            });
+            if (res.ok) {
+                console.log("Plato eliminado");
+                return true;
+            }
+        }
+        catch {
+            console.log("no se pudo eliminar el plato")
+            return false;
+        }
+    }
 
     async function cargarFormEditarPlato(plato) {
         let f = form_editar_plato;
