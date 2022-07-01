@@ -138,19 +138,6 @@ async function inicializarMenu() {
     });
     form_editar_plato.btn_cancelar.addEventListener("click", ocultarEdicionPlato);
     //form_editar_plato.addEventListener("focusout", ocultarEdicionPlato);
-
-    form_agregar_plato.btn_agregar.addEventListener("click", function () {
-        if (formulario.reportValidity()) {
-            addFormAsRow();
-        }
-    });
-    form_agregar_plato.btn_agregarx3.addEventListener("click", function () {
-        if (form_agregar_plato.reportValidity()) {
-            for (let i = 0; i < 3; i++) {
-                addFormAsRow();
-            }
-        }
-    });
     form_agregar_plato.btn_limpiar.addEventListener("click", async function () {
         try {
             let menu = await jsonMenuFromMockapi();
@@ -292,6 +279,38 @@ async function inicializarMenu() {
             console.log("no se pudo actualizar el plato")
         }
     }
+    async function agregarPlato() {
+    let form=document.querySelector("#form_agregar_plato");
+    let plato = { 
+        "nombre" : form.nombre.value,
+        "precio" : form.precio.value,
+        "origen" : form.origen.value,
+        "apto_veg" : form.apto_veg.checked,
+        "apto_celiacos" : form.apto_celiacos.checked
+    };
+
+    try {
+        let res = await fetch(urlMockapi, {
+            "method": 'POST',
+            "headers": {'content-type':'application/json'},
+            "body": JSON.stringify(plato)
+        });
+            if (res.status===201) {
+                let fila = document.createElement("tr");
+                fila.innerHTML = res;             
+                if (form.origen == "Italia") {
+                    fila.classList.add("fila_resaltada");
+            }
+
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+    
+}    
+document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
+
     async function actualizarPlatoEnTabla(id) {
         try {
             let plato = await jsonPlatoFromMockapi(id);
