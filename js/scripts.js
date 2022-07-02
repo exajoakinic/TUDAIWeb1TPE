@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     let elementosMenu = document.querySelector(".nav_bar");
     let dinamicBodyContent = document.querySelector("#dinamicBodyContent");
-
+    
     document.querySelector(".btn_menu_nav").addEventListener("click", function () {
         elementosMenu.classList.toggle("show");
     });
@@ -128,9 +128,11 @@ async function inicializarMenu() {
     let form_editar_plato = document.querySelector("#form_editar_plato");   
     let div_form_menu =  document.querySelector(".div_form_menu");   
 
+    let pagina = 1;
+
     form_editar_plato.id.disabled = true;
 
-    recargarTabla(await jsonMenuFromMockapi());
+    recargarTabla(await jsonMenuFromMockapi(pagina));
 
     form_editar_plato.addEventListener("submit", function(e){
         e.preventDefault();
@@ -175,7 +177,7 @@ async function inicializarMenu() {
         return jsonMenuFrom(urlMockapi + id);
     }
     async function jsonMenuFromMockapi() {
-        return jsonMenuFrom(urlMockapi);
+        return jsonMenuFrom(urlMockapi + "?page=" + pagina + "&limit=10&sortBy=nombre");
     }
     async function jsonMenuFromLocal() {
         return jsonMenuFrom("./json/menu.json");
@@ -184,7 +186,6 @@ async function inicializarMenu() {
     function recargarTabla(menu) {
         for (let plato of menu) {
             let fila = crearFila(plato);
-            tableMenuTbody.appendChild(fila);
         }
     };
 
@@ -197,18 +198,21 @@ async function inicializarMenu() {
         }
         fila.innerHTML = htmlMenuRow(plato);
         addButtonsModifyAndDelete(fila, plato);
+        tableMenuTbody.appendChild(fila);
         return fila;
     }
 
     function addButtonsModifyAndDelete(fila, plato){
         let celda = document.createElement("td");
         celda.classList.add("btn_row");
+
         let btnEditar = document.createElement("button");
         btnEditar.innerHTML = "Modificar";
         btnEditar.addEventListener("click", function() {
             cargarFormEditarPlato(plato)
         })
         celda.appendChild(btnEditar);
+
         let btnEliminar = document.createElement("button");
         btnEliminar.innerHTML = "Eliminar";
         celda.appendChild(btnEliminar);
@@ -280,39 +284,33 @@ async function inicializarMenu() {
         }
     }
     async function agregarPlato() {
-    let form=form_agregar_plato;
-    let plato = { 
-        "nombre" : form.nombre.value,
-        "precio" : form.precio.value,
-        "origen" : form.origen.value,
-        "apto_veg" : form.apto_veg.checked,
-        "apto_celiacos" : form.apto_celiacos.checked
-    };
+        let form = form_agregar_plato;
+        let plato = { 
+            "nombre" : form.nombre.value,
+            "precio" : form.precio.value,
+            "origen" : form.origen.value,
+            "apto_veg" : form.apto_veg.checked,
+            "apto_celiacos" : form.apto_celiacos.checked
+        };
 
-    try {
-        let res = await fetch(urlMockapi, {
-            "method": 'POST',
-            "headers": {'content-type':'application/json'},
-            "body": JSON.stringify(plato)
-        });
-            if (res.status===201) {
-                let plato = await res.json()
-                console.log(plato);
-                addToTable(plato);
-                //let fila = document.createElement("tr");
-                //fila.innerHTML = res;             
-                //if (form.origen == "Italia") {
-                //    fila.classList.add("fila_resaltada");
-                //}
-
+        try {
+            let res = await fetch(urlMockapi, {
+                "method": 'POST',
+                "headers": {'content-type':'application/json'},
+                "body": JSON.stringify(plato)
+            });
+                if (res.status===201) {
+                    let plato = await res.json()
+                    console.log(plato);
+                    crearFila(plato);
+            }
         }
-    }
-    catch(error) {
-        console.log(error);
-    }
+        catch(error) {
+            console.log(error);
+        }
     
-}    
-document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
+    }    
+    document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
 
     async function actualizarPlatoEnTabla(id) {
         try {
@@ -411,14 +409,6 @@ document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
             "apto_celiacos": formulario.apto_celiacos.checked
         };
         addToTable(plato);
-    }
-    function addToTable(plato) {
-        let fila = document.createElement("tr");
-        fila.innerHTML = htmlMenuRow(plato);
-        if (plato.origen == "Italia") {
-            fila.classList.add("fila_resaltada");
-        }
-        tableMenuTbody.appendChild(fila);
     }
 
 };
