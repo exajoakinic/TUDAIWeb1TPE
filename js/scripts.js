@@ -1,7 +1,7 @@
 "use strict"
 
 
-// --------------------------------- MENU NAV ----------------------------------------------
+// --------------------------------- NAV MENU ----------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
     let elementosMenu = document.querySelector(".nav_bar");
@@ -120,7 +120,7 @@ function inicializarHome() {
     }
 }
 
-// --------------------------------- MENU ----------------------------------------------
+// --------------------------------- MENU / PLATOS ----------------------------------------------
 async function inicializarMenu() {
     const urlMockapi = "https://62b88fd6f4cb8d63df5fce28.mockapi.io/api/v1/platos/"
     let tableMenuTbody = document.querySelector("#table-menu tbody");
@@ -280,7 +280,7 @@ async function inicializarMenu() {
         }
     }
     async function agregarPlato() {
-    let form=document.querySelector("#form_agregar_plato");
+    let form=form_agregar_plato;
     let plato = { 
         "nombre" : form.nombre.value,
         "precio" : form.precio.value,
@@ -296,11 +296,14 @@ async function inicializarMenu() {
             "body": JSON.stringify(plato)
         });
             if (res.status===201) {
-                let fila = document.createElement("tr");
-                fila.innerHTML = res;             
-                if (form.origen == "Italia") {
-                    fila.classList.add("fila_resaltada");
-            }
+                let plato = await res.json()
+                console.log(plato);
+                addToTable(plato);
+                //let fila = document.createElement("tr");
+                //fila.innerHTML = res;             
+                //if (form.origen == "Italia") {
+                //    fila.classList.add("fila_resaltada");
+                //}
 
         }
     }
@@ -415,7 +418,6 @@ document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
         if (plato.origen == "Italia") {
             fila.classList.add("fila_resaltada");
         }
-        menu.push(plato);
         tableMenuTbody.appendChild(fila);
     }
 
