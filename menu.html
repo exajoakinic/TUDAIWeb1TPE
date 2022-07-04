@@ -12,6 +12,18 @@
             </thead>
             <tbody>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <button id="tabla_primer_pagina">Primer Pagina</button>
+                        <button id="tabla_anterior">Anterior</button>
+                        <button id="tabla_siguiente">Siguiente</button>
+                        <button id="tabla_filtro">FILTRO</button>
+                        <div id ="tabla_pagina_nro"></div>
+                    </td>
+                </tr>     
+
+            </tfoot>
         </table>
 
         <form class="form_menu" id="form_agregar_plato" action="">
@@ -39,12 +51,14 @@
                 <Input type="checkbox" name="apto_celiacos" />
             </div>
             <div class="form_col">
-                <input type="button" class="btn_form" id="agregarx1" name="btn_agregar" value="Agregar" />
+                <input type="button" class="btn_form" name="btn_agregar" value="Agregar" />
                 <input type="button" class="btn_form" name="btn_agregarx3" value="Agregar x3" />
                 <input type="button" class="btn_form" name="btn_limpiar" value="Limpiar Menú" />
                 <input type="button" class="btn_form" name="btn_menu_pregargado" value="Menú Precargado" />
-            </div>
+            </div>   
         </form>
+
+
         <div class="div_form_menu">
             <form class="form_menu" id="form_editar_plato" action="">
                 <h2>Editar Plato del Menú</h2>

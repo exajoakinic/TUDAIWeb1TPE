@@ -127,12 +127,34 @@ async function inicializarMenu() {
     let form_agregar_plato = document.querySelector("#form_agregar_plato");
     let form_editar_plato = document.querySelector("#form_editar_plato");   
     let div_form_menu =  document.querySelector(".div_form_menu");   
+    let div_table_pagina = document.querySelector("#tabla_pagina_nro")
 
-    let pagina = 1;
+
+    async function actualizarPagina() {
+        recargarTabla(await jsonMenuFromMockapi(pagina));
+        div_table_pagina.innerHTML = pagina;
+    }
 
     form_editar_plato.id.disabled = true;
 
-    recargarTabla(await jsonMenuFromMockapi(pagina));
+    let pagina = 1;
+    actualizarPagina()
+
+    document.querySelector("#tabla_primer_pagina").addEventListener("click", function() {
+        pagina = 1;
+        actualizarPagina()
+    })
+    document.querySelector("#tabla_anterior").addEventListener("click", function() {
+        if (pagina > 1) {
+            pagina--;
+            actualizarPagina()
+        }
+    })
+    document.querySelector("#tabla_siguiente").addEventListener("click", function() {
+        pagina++;
+        actualizarPagina();
+    })
+
 
     form_editar_plato.addEventListener("submit", function(e){
         e.preventDefault();
@@ -184,6 +206,7 @@ async function inicializarMenu() {
     }
     // FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
     function recargarTabla(menu) {
+        tableMenuTbody.innerHTML = "";
         for (let plato of menu) {
             let fila = crearFila(plato);
         }
@@ -310,7 +333,13 @@ async function inicializarMenu() {
         }
     
     }    
-    document.querySelector("#agregarx1").addEventListener("click", agregarPlato);
+    form_agregar_plato.btn_agregar.addEventListener("click", agregarPlato);
+    form_agregar_plato.btn_agregarx3.addEventListener("click", function() {
+        for (let i = 0; i < 3; i++) {
+            agregarPlato();
+        }
+    });
+    
 
     async function actualizarPlatoEnTabla(id) {
         try {
