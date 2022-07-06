@@ -356,7 +356,7 @@ async function inicializarMenu() {
         div_form_menu.classList.remove("mostrar");
     }
     async function modificarPlato() {
-            let f = form_editar_plato;
+        let f = form_editar_plato;
         let plato = {
             "id" : f.id.value,
             "nombre" : f.nombre.value,
@@ -365,7 +365,6 @@ async function inicializarMenu() {
             "apto_veg" : f.apto_veg.checked,
             "apto_celiacos" : f.apto_celiacos.checked
         };
-
         try {
             let res = await fetch(urlMockapi + plato.id, {
                 method: 'PUT',
