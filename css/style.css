@@ -180,7 +180,9 @@ form {
     display: flex;
     flex-wrap: wrap;
 }
-
+#table-menu tbody tr.ocultar_fila {
+    display:none;
+}
 
 form label,
 form input,

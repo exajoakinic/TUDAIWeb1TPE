@@ -163,6 +163,31 @@ async function inicializarMenu() {
     form_filtrar_plato.btn_cancelar.addEventListener("click",function(){
         div_form_menu_filtrar.classList.remove("mostrar");
     })
+    form_filtrar_plato.addEventListener("submit", function(e) {
+        e.preventDefault();
+        filtrarTablaHTML(form_filtrar_plato.origen.value);
+        div_form_menu_filtrar.classList.remove("mostrar");
+    })
+
+    function filtrarTablaHTML(origen) {
+        //seleccionamos todas las filas del cuerpo de la tabla
+        let filas = document.querySelectorAll("#table-menu tbody tr")
+        if (origen == "all") {
+            for (let fila of filas) {
+                fila.classList.remove("ocultar_fila");
+            }
+        } else {
+            for (let fila of filas) {
+                //en javascript, la función search de un string devuelve -1 si no 
+                //encontró el texto y un valor diferente si lo encontró (la posición)
+                if (fila.innerHTML.search(origen + "</span></td>") == -1 ) {
+                    fila.classList.add("ocultar_fila");
+                } else {
+                    fila.classList.remove("ocultar_fila");
+                }
+            }
+        }
+    }
 
 
     form_editar_plato.addEventListener("submit", function(e){
@@ -448,7 +473,5 @@ async function inicializarMenu() {
         };
         addToTable(plato);
     }
-
-
 };
 
