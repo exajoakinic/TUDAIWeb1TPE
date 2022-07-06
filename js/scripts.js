@@ -1,5 +1,5 @@
 "use strict"
-
+//-------------------------- CARGA HEADER BODY ---------------------------------------------
 document.addEventListener("DOMContentLoaded", async function () {
 
     let b = document.querySelector("body");
@@ -370,9 +370,7 @@ async function inicializarMenu() {
             let res = await fetch(urlMockapi + plato.id, {
                 method: 'PUT',
                 body: JSON.stringify(plato),
-                headers: {
-                    'content-type':'application/json'
-                }
+                headers: {'content-type':'application/json'}
             });
             if (res.ok) {
                 console.log("Plato actualizado");
@@ -416,6 +414,7 @@ async function inicializarMenu() {
     }
 
     form_agregar_plato.btn_agregar.addEventListener("click", agregarPlatoDesdeFormularioAgregar);
+    
     form_agregar_plato.btn_agregarx3.addEventListener("click", function() {
         for (let i = 0; i < 3; i++) {
             agregarPlatoDesdeFormularioAgregar();
@@ -446,20 +445,6 @@ async function inicializarMenu() {
         }
     }
 
-
-    function reescribirMockapi() {
-        let filas = "";
-
-        for (let elem of menu) {
-            if (elem.origen == "Italia") {
-                filas += "<tr class='fila_resaltada'>"
-            } else {
-                filas += "<tr>"
-            }
-            filas += htmlMenuRow(elem) + "</tr>";
-        }
-        tableMenuTbody.innerHTML = filas;
-    }
     function htmlMenuRow(plato) {
         let r
         r = "<td>" + plato.nombre + "</td>";
@@ -511,15 +496,5 @@ async function inicializarMenu() {
     }
     // FIN FUNCIONES INICIALIZACIÓN Y LLENADO DE TABLA DESDE JSON
 
-    function addFormAsRow() {
-        let plato = {
-            "nombre": formulario.nombre.value,
-            "precio": formulario.precio.value,
-            "origen": formulario.origen.value,
-            "apto_veg": formulario.apto_veg.checked,
-            "apto_celiacos": formulario.apto_celiacos.checked
-        };
-        addToTable(plato);
-    }
 };
 
