@@ -18,7 +18,7 @@
                         <button id="tabla_primer_pagina">Primer Pagina</button>
                         <button id="tabla_anterior">Anterior</button>
                         <button id="tabla_siguiente">Siguiente</button>
-                        <button id="tabla_filtro">FILTRO</button>
+                        <button id="tabla_filtro">Filtro</button>
                         <div id ="tabla_pagina_nro"></div>
                     </td>
                 </tr>     
@@ -81,6 +81,21 @@
                 <label for="apto_celiacos"> Apto Celíacos </label>
                 <Input type="checkbox" name="apto_celiacos" />
                 <input type="submit" class="btn_form" name="btn_guardar" value="Guardar" />
+                <input type="button" class="btn_form" name="btn_cancelar" value="Cancelar" />
+            </form>
+        </div>
+
+        <div class="div_form_menu div_form_menu_filtrar">
+            <form class="form_menu" id="form_filtrar_plato" action="">
+                <h2>Filtrar Plato del Menú</h2>
+                <select name="origen">
+                    <option>India</option>
+                    <option>Italia</option>
+                    <option>Grecia</option>
+                    <option>México</option>
+                    <option>Portugal</option>
+                </select>
+                <input type="submit" class="btn_form" name="btn_filtrar" value="Aplicar" />
                 <input type="button" class="btn_form" name="btn_cancelar" value="Cancelar" />
             </form>
         </div>

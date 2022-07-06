@@ -125,10 +125,11 @@ async function inicializarMenu() {
     const urlMockapi = "https://62b88fd6f4cb8d63df5fce28.mockapi.io/api/v1/platos/"
     let tableMenuTbody = document.querySelector("#table-menu tbody");
     let form_agregar_plato = document.querySelector("#form_agregar_plato");
-    let form_editar_plato = document.querySelector("#form_editar_plato");   
+    let form_editar_plato = document.querySelector("#form_editar_plato");
+    let form_filtrar_plato = document.querySelector("#form_filtrar_plato");   
     let div_form_menu =  document.querySelector(".div_form_menu");   
-    let div_table_pagina = document.querySelector("#tabla_pagina_nro")
-
+    let div_table_pagina = document.querySelector("#tabla_pagina_nro");
+    let div_form_menu_filtrar = document.querySelector(".div_form_menu_filtrar")
 
     async function actualizarPagina() {
         recargarTabla(await jsonMenuFromMockapi(pagina));
@@ -153,6 +154,14 @@ async function inicializarMenu() {
     document.querySelector("#tabla_siguiente").addEventListener("click", function() {
         pagina++;
         actualizarPagina();
+    })
+
+    document.querySelector("#tabla_filtro").addEventListener("click",function(){
+        div_form_menu_filtrar.classList.add("mostrar");
+    })
+
+    form_filtrar_plato.btn_cancelar.addEventListener("click",function(){
+        div_form_menu_filtrar.classList.remove("mostrar");
     })
 
 
@@ -439,6 +448,7 @@ async function inicializarMenu() {
         };
         addToTable(plato);
     }
+
 
 };
 
