@@ -1,9 +1,34 @@
 "use strict"
 
+document.addEventListener("DOMContentLoaded", async function () {
 
+    let b = document.querySelector("body");
+    try {
+        let res = await fetch("./header.html")
+        if (res.status == 200) {
+            b.innerHTML = await res.text();
+        }
+    } catch {
+        b.innerHTML = "NO SE PUDO CARGAR EL MENÚ"
+    }
+    
+    b.innerHTML += "<div id='dinamicBodyContent'></div>";
+
+    try {
+        let res = await fetch("./footer.html")
+        if (res.status == 200) {
+            b.innerHTML += await res.text();
+            document.appendChild = b
+        } 
+    }catch {
+        b.innerHTML += "NO SE PUDO CARGAR EL FOOTER"
+    }
+    
+    inicializarNavMenu();
+})
 // --------------------------------- NAV MENU ----------------------------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
+function inicializarNavMenu() {
     let elementosMenu = document.querySelector(".nav_bar");
     let dinamicBodyContent = document.querySelector("#dinamicBodyContent");
     
@@ -16,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#nav_opt_ubicacion").addEventListener("click", click_nav_opt_ubicacion);
     document.querySelector("#nav_opt_form_contacto").addEventListener("click", click_nav_opt_form_contacto);
 
-    click_nav_opt("./home.html", inicializarHome);
-})
+    click_nav_opt_home();
+}
 
 
 function click_nav_opt_home() {
@@ -131,6 +156,7 @@ async function inicializarMenu() {
     let div_table_pagina = document.querySelector("#tabla_pagina_nro");
     let div_form_menu_filtrar = document.querySelector(".div_form_menu_filtrar")
 
+
     async function actualizarPagina() {
         recargarTabla(await jsonMenuFromMockapi(pagina));
         div_table_pagina.innerHTML = pagina;
@@ -160,19 +186,26 @@ async function inicializarMenu() {
         div_form_menu_filtrar.classList.add("mostrar");
     })
 
-    form_filtrar_plato.btn_cancelar.addEventListener("click",function(){
-        div_form_menu_filtrar.classList.remove("mostrar");
-    })
     form_filtrar_plato.addEventListener("submit", function(e) {
         e.preventDefault();
         filtrarTablaHTML(form_filtrar_plato.origen.value);
+        div_form_menu_filtrar.classList.remove("mostrar");
+    })
+    form_filtrar_plato.btn_cancelar.addEventListener("click", function() {
+        div_form_menu_filtrar.classList.remove("mostrar");
+    })
+
+    form_filtrar_plato.btn_filtro_mockapi.addEventListener("click", async function() {
+        let origen = form_filtrar_plato.origen.value;
+        let menu = await jsonMenuFromMockapiFiltrando(origen)
+        recargarTabla(menu);
         div_form_menu_filtrar.classList.remove("mostrar");
     })
 
     function filtrarTablaHTML(origen) {
         //seleccionamos todas las filas del cuerpo de la tabla
         let filas = document.querySelectorAll("#table-menu tbody tr")
-        if (origen == "all") {
+        if (origen == "") {
             for (let fila of filas) {
                 fila.classList.remove("ocultar_fila");
             }
@@ -189,28 +222,35 @@ async function inicializarMenu() {
         }
     }
 
-
     form_editar_plato.addEventListener("submit", function(e){
         e.preventDefault();
         modificarPlato();
     });
     form_editar_plato.btn_cancelar.addEventListener("click", ocultarEdicionPlato);
-    //form_editar_plato.addEventListener("focusout", ocultarEdicionPlato);
+
+    form_agregar_plato.btn_menu_pregargado.addEventListener("click", async function() {
+        let menu_precargado = await jsonMenuFromLocal();
+        for (let plato of menu_precargado) {
+            agregarPlato(plato);
+        }
+    });
+
     form_agregar_plato.btn_limpiar.addEventListener("click", async function () {
         try {
-            let menu = await jsonMenuFromMockapi();
+            let menu = await jsonMenuFrom(urlMockapi);
             for (let plato of menu) {
                 deletePlatoFromMenu(plato.id);
             }
-            
-            recargarTabla(await jsonMenuFromMockapi());
-            //corregir con mockapi
         }
         catch(e) {
             console.log("Error al intentar eliminar todos los platos");
             console.log(e);
         }
-    });
+
+        pagina = 1;
+        actualizarPagina()
+        recargarTabla(await jsonMenuFromMockapi());
+});
     
     async function jsonMenuFrom(url) {
         try {
@@ -234,6 +274,9 @@ async function inicializarMenu() {
     }
     async function jsonMenuFromMockapi() {
         return jsonMenuFrom(urlMockapi + "?page=" + pagina + "&limit=10&sortBy=nombre");
+    }
+    async function jsonMenuFromMockapiFiltrando(origen) {
+        return jsonMenuFrom(urlMockapi + "?page=" + pagina + "&origen=" + origen + "&sortBy=nombre");
     }
     async function jsonMenuFromLocal() {
         return jsonMenuFrom("./json/menu.json");
@@ -340,7 +383,9 @@ async function inicializarMenu() {
             console.log("no se pudo actualizar el plato")
         }
     }
-    async function agregarPlato() {
+
+
+    function agregarPlatoDesdeFormularioAgregar() {
         let form = form_agregar_plato;
         let plato = { 
             "nombre" : form.nombre.value,
@@ -349,7 +394,10 @@ async function inicializarMenu() {
             "apto_veg" : form.apto_veg.checked,
             "apto_celiacos" : form.apto_celiacos.checked
         };
-
+        agregarPlato(plato);
+    }    
+    
+    async function agregarPlato(plato) {
         try {
             let res = await fetch(urlMockapi, {
                 "method": 'POST',
@@ -365,12 +413,12 @@ async function inicializarMenu() {
         catch(error) {
             console.log(error);
         }
-    
-    }    
-    form_agregar_plato.btn_agregar.addEventListener("click", agregarPlato);
+    }
+
+    form_agregar_plato.btn_agregar.addEventListener("click", agregarPlatoDesdeFormularioAgregar);
     form_agregar_plato.btn_agregarx3.addEventListener("click", function() {
         for (let i = 0; i < 3; i++) {
-            agregarPlato();
+            agregarPlatoDesdeFormularioAgregar();
         }
     });
     
