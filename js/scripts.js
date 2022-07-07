@@ -147,7 +147,7 @@ function inicializarHome() {
 
 // --------------------------------- MENU / PLATOS ----------------------------------------------
 async function inicializarMenu() {
-    const urlMockapi = "https://62b88fd6f4cb8d63df5fce28.mockapi.io/api/v1/platos/"
+    const urlMockapi = "https://62b88fd6f4cb8d63df5fce28.mockapi.io/api/v1/platostest/"
     let tableMenuTbody = document.querySelector("#table-menu tbody");
     let form_agregar_plato = document.querySelector("#form_agregar_plato");
     let form_editar_plato = document.querySelector("#form_editar_plato");
@@ -239,7 +239,7 @@ async function inicializarMenu() {
         try {
             let menu = await jsonMenuFrom(urlMockapi);
             for (let plato of menu) {
-                deletePlatoFromMenu(plato.id);
+                await deletePlatoFromMenu(plato.id);
             }
         }
         catch(e) {
