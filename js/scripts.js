@@ -231,7 +231,7 @@ async function inicializarMenu() {
     form_agregar_plato.btn_menu_pregargado.addEventListener("click", async function() {
         let menu_precargado = await jsonMenuFromLocal();
         for (let plato of menu_precargado) {
-            agregarPlato(plato);
+            await agregarPlato(plato);
         }
     });
 
@@ -239,7 +239,7 @@ async function inicializarMenu() {
         try {
             let menu = await jsonMenuFrom(urlMockapi);
             for (let plato of menu) {
-                deletePlatoFromMenu(plato.id);
+                await deletePlatoFromMenu(plato.id);
             }
         }
         catch(e) {
