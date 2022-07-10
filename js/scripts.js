@@ -231,7 +231,7 @@ async function inicializarMenu() {
     form_agregar_plato.btn_menu_pregargado.addEventListener("click", async function() {
         let menu_precargado = await jsonMenuFromLocal();
         for (let plato of menu_precargado) {
-            agregarPlato(plato);
+            await agregarPlato(plato);
         }
     });
 
@@ -382,7 +382,7 @@ async function inicializarMenu() {
     }
 
 
-    function agregarPlatoDesdeFormularioAgregar() {
+    async function agregarPlatoDesdeFormularioAgregar() {
         let form = form_agregar_plato;
         let plato = { 
             "nombre" : form.nombre.value,
@@ -391,7 +391,7 @@ async function inicializarMenu() {
             "apto_veg" : form.apto_veg.checked,
             "apto_celiacos" : form.apto_celiacos.checked
         };
-        agregarPlato(plato);
+        await agregarPlato(plato);
     }    
     
     async function agregarPlato(plato) {
@@ -414,9 +414,9 @@ async function inicializarMenu() {
 
     form_agregar_plato.btn_agregar.addEventListener("click", agregarPlatoDesdeFormularioAgregar);
     
-    form_agregar_plato.btn_agregarx3.addEventListener("click", function() {
+    form_agregar_plato.btn_agregarx3.addEventListener("click", async function() {
         for (let i = 0; i < 3; i++) {
-            agregarPlatoDesdeFormularioAgregar();
+            await agregarPlatoDesdeFormularioAgregar();
         }
     });
     
